@@ -1,0 +1,2857 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centru Medical Revimed PLUS</title>
+    <link rel="icon" href="83.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Font Awesome pentru Iconițe -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <style>
+        /* =====================================================
+           General Styles
+        ===================================================== */
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            scroll-behavior: smooth;
+            user-select: none;
+            background-color: #ffffff;
+            color: #333333;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* =====================================================
+           Header / Hero Section
+        ===================================================== */
+        header {
+            background: url('https://revimedplus.neocities.org/medical-bg.jpg') no-repeat center center/cover;
+            height: 100vh;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            padding: 20px;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 0;
+        }
+
+        header .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        header .btn {
+            font-size: 1rem;
+            padding: 12px 30px;
+            border-radius: 5px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        header img {
+            max-width: 90%;
+            height: auto;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        /* =====================================================
+           Navbar
+        ===================================================== */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.9) !important;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            padding: 15px 0;
+            z-index: 1000;
+        }
+
+        .navbar.scrolled {
+            background-color: #fff !important;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .navbar .nav-link {
+            color: #333 !important;
+            font-weight: 500;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+
+        .navbar .nav-link:hover {
+            color: #007bff !important;
+        }
+
+        .navbar-brand img {
+            height: 50px;
+            transition: height 0.3s;
+        }
+
+        .navbar.scrolled .navbar-brand img {
+            height: 40px;
+        }
+
+        /* =====================================================
+           Sections
+        ===================================================== */
+        section {
+            padding: 80px 0;
+        }
+
+        #about, #services, #team, #testimonials, #youtube-videos, #contact {
+            background-color: #f9f9f9;
+        }
+
+        /* =====================================================
+           About Section
+        ===================================================== */
+        #about .about-img {
+            max-width: 300px;
+            margin: 0 auto 30px;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: block; /* Ensure centering */
+        }
+
+        #about .about-content {
+            text-align: center;
+        }
+
+        #about h2 {
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        #about p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        #about .btn {
+            font-size: 1rem;
+            padding: 10px 25px;
+            border-radius: 5px;
+        }
+
+        /* =====================================================
+           Services Section
+        ===================================================== */
+        #services h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .service-item {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .service-item i {
+            color: #007bff;
+            margin-bottom: 15px;
+            font-size: 3rem; /* Ensures consistent icon size */
+        }
+
+        .service-item h4 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #343a40;
+        }
+
+        .service-item p {
+            font-size: 0.95rem;
+            color: #555555;
+            margin-bottom: 20px;
+        }
+
+        .service-item .btn {
+            font-size: 0.9rem;
+            padding: 8px 20px;
+            border-radius: 5px;
+        }
+
+        /* =====================================================
+           Modals
+        ===================================================== */
+        .modal-content {
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .modal-header {
+            border-bottom: none;
+            padding: 20px 30px;
+            background-color: #007bff;
+            color: #fff;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .modal-header .close {
+            color: #fff;
+            opacity: 1;
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .modal-footer {
+            border-top: none;
+            padding: 20px 30px;
+        }
+
+        /* =====================================================
+           Buttons
+        ===================================================== */
+        .custom-btn {
+            font-weight: bold;
+            padding: 12px 25px;
+            border-radius: 5px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .custom-btn i {
+            margin-right: 5px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+            box-shadow: 0 3px 10px rgba(0, 123, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: #ffc107;
+            color: #343a40;
+            border: none;
+        }
+
+        .btn-secondary:hover {
+            background-color: #e0a800;
+            transform: scale(1.05);
+            box-shadow: 0 3px 10px rgba(255, 193, 7, 0.3);
+        }
+
+        /* =====================================================
+           Gallery Section
+        ===================================================== */
+        #gallery h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .gallery-item {
+            width: 100%;
+            max-width: 300px;
+            height: 200px;
+            object-fit: cover;
+            margin: 10px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        /* =====================================================
+           Testimonials Section
+        ===================================================== */
+        #testimonials h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .testimonial {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .testimonial:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .testimonial p {
+            font-size: 1rem;
+            color: #555;
+            flex-grow: 1;
+        }
+
+        .testimonial h5 {
+            font-size: 0.9rem;
+            color: #007bff;
+            margin-top: 15px;
+            font-weight: 600;
+        }
+
+        /* =====================================================
+           YouTube Videos Section
+        ===================================================== */
+        #youtube-videos h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            padding-top: 25px;
+            height: 0;
+            margin-bottom: 20px;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* =====================================================
+           Contact Section
+        ===================================================== */
+        #contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        #contact p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        #contact .working-hours {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        #contact .transport-info span {
+            font-size: 1rem;
+            margin: 5px 15px;
+            color: #555;
+        }
+
+        #contact .gallery img {
+            max-width: 150px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        #contact .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        #contact iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+
+        /* =====================================================
+           Footer
+        ===================================================== */
+        footer {
+            background-color: #343a40;
+            color: #fff;
+            padding: 40px 0;
+        }
+
+        footer a {
+            color: #ffc107;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+        footer h6 {
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        footer ul li {
+            margin-bottom: 10px;
+        }
+
+        footer .social-icons a {
+            margin-right: 15px;
+            color: #ffc107;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        footer .social-icons a:hover {
+            color: #fff;
+        }
+
+        /* =====================================================
+           Responsive Styles
+        ===================================================== */
+        @media (max-width: 1200px) {
+            header h1 {
+                font-size: 2.5rem;
+                        padding: 100px 60px; /* Add padding to separate from hero section */
+
+            }
+            header p {
+                font-size: 1rem;
+            }
+            .gallery-item {
+                max-width: 250px;
+            }
+            #about .about-img {
+                max-width: 250px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            header {
+                height: auto;
+                  padding: 100px 60px; /* Add padding to separate from hero section */
+
+            }
+            header h1 {
+                font-size: 2rem;
+            }
+            header p {
+                font-size: 0.9rem;
+            }
+            #about .about-content {
+                text-align: center;
+            }
+            #contact h2 {
+                font-size: 2rem;
+            }
+            .navbar .nav-link {
+                margin-right: 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            header p {
+                font-size: 0.8rem;
+            }
+            .custom-btn {
+                font-size: 0.9rem;
+            }
+            #contact iframe {
+                height: 250px;
+            }
+            .service-item h4 {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+            header p {
+                font-size: 0.7rem;
+            }
+            .custom-btn {
+                padding: 10px 20px;
+                font-size: 0.8rem;
+            }
+            .gallery-item {
+                max-width: 200px;
+            }
+            #contact h2 {
+                font-size: 1.5rem;
+            }
+            footer h6 {
+                font-size: 1.2rem;
+            }
+            .social-icons a {
+                font-size: 1.2rem;
+            }
+
+            /* Adjust header content padding to prevent overlap */
+            header .header-content {
+                padding-top: 100px; /* Push content down on small screens */
+            }
+
+            /* Adjust modals for small screens */
+            .modal-dialog {
+                max-width: 95%;
+                margin: 1.75rem auto;
+            }
+        }
+
+        /* =====================================================
+           Additional Styles for Enhanced User Experience
+        ===================================================== */
+        /* Smooth Scroll Offset */
+        html {
+            scroll-padding-top: 70px;
+        }
+
+        /* Enhanced Button Styles */
+        .btn-outline-primary {
+            border-color: #007bff;
+            color: #007bff;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn-outline-primary:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        /* Enhanced Form Styles */
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0,123,255,0.5);
+        }
+
+        /* Additional Modals */
+        .modal-lg {
+            max-width: 80%;
+        }
+
+        .modal-xl {
+            max-width: 90%;
+        }
+
+
+
+        /* =====================================================
+           Accessibility Enhancements
+        ===================================================== */
+        /* Focus Styles for Accessibility */
+        a:focus, button:focus, input:focus, select:focus, textarea:focus {
+            outline: 2px solid #007bff;
+            outline-offset: 2px;
+        }
+
+        /* High Contrast for Better Readability */
+        .high-contrast {
+            background-color: #000;
+            color: #fff;
+        }
+
+        /* =====================================================
+           Animations and Transitions
+        ===================================================== */
+        .fade-in {
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* =====================================================
+           Additional Layout Enhancements
+        ===================================================== */
+        .container-lg {
+            max-width: 1140px;
+        }
+
+        .container-md {
+            max-width: 960px;
+        }
+
+        .container-sm {
+            max-width: 720px;
+        }
+
+        /* =====================================================
+           Custom Scrollbar
+        ===================================================== */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #888; 
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555; 
+        }
+
+        /* =====================================================
+           Enhanced Footer Layout
+        ===================================================== */
+        footer .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        footer .sitew {
+            width: 100%;
+        }
+
+        /* =====================================================
+           Additional Utility Classes
+        ===================================================== */
+        .mt-5 {
+            margin-top: 3rem !important;
+        }
+
+        .mb-5 {
+            margin-bottom: 3rem !important;
+        }
+
+        .mt-4 {
+            margin-top: 1.5rem !important;
+        }
+
+        .mb-4 {
+            margin-bottom: 1.5rem !important;
+        }
+
+        .ml-3 {
+            margin-left: 1rem !important;
+        }
+
+        .mx-2 {
+            margin-left: 0.5rem !important;
+            margin-right: 0.5rem !important;
+        }
+
+        /* =====================================================
+           Enhanced Modal Styles
+        ===================================================== */
+        .modal-title {
+            font-size: 1.5rem;
+        }
+
+        .modal-body h6 {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .table-bordered th, .table-bordered td {
+            vertical-align: middle;
+        }
+
+        /* =====================================================
+           Enhanced Button Spacing
+        ===================================================== */
+        .btn-group {
+            margin-top: 20px;
+        }
+
+        /* =====================================================
+           Additional Responsive Enhancements
+        ===================================================== */
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.2rem;
+            }
+
+            header p {
+                font-size: 0.6rem;
+            }
+
+            .service-item h4 {
+                font-size: 1rem;
+            }
+
+            .testimonial p {
+                font-size: 0.8rem;
+            }
+
+            footer h6 {
+                font-size: 1rem;
+            }
+
+            .social-icons a {
+                font-size: 1.2rem;
+            }
+        }
+        
+        /* =====================================================
+    1. Modal Fixes and Enhancements
+===================================================== */
+
+/* Reset any conflicting transformations and transitions */
+.modal.fade .modal-dialog {
+    transform: none !important;
+    transition: none !important;
+}
+
+/* Restore default modal animations without affecting functionality */
+.modal.fade .modal-dialog {
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+.modal.show .modal-dialog {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Ensure modal content is scrollable if it exceeds viewport */
+.modal-content {
+    max-height: 90vh;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+/* Enhance modal body for better readability */
+.modal-body {
+    padding: 20px 30px;
+    overflow-y: auto;
+}
+
+/* Optional: Add a subtle shadow to the modal backdrop */
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Enhance close button with hover effect */
+.modal-header .close:hover {
+    color: #ffc107;
+    cursor: pointer;
+}
+
+/* Responsive adjustments for modals on smaller screens */
+@media (max-width: 576px) {
+    .modal-content {
+        margin: 10px;
+        max-width: 95%;
+    }
+}
+
+/* =====================================================
+    2. Header and Hero Section Adjustments for iPad Pro and Air
+===================================================== */
+
+/* Target iPad Pro (both portrait and landscape) and iPad Air */
+@media (min-width: 1025px) and (max-width: 1366px), /* iPad Pro 12.9" */
+       (min-width: 768px) and (max-width: 1024px) /* iPad Air and others */ {
+    
+    /* Adjust header height to prevent overlapping */
+    header {
+        height: auto; /* Allow height to adjust based on content */
+        padding: 100px 60px; /* Add padding to separate from hero section */
+    }
+
+    /* Ensure header content is visible and not hidden */
+    header .header-content {
+        padding-bottom: 40px; /* Space below header content */
+    }
+
+    /* Position hero section below the header */
+    #hero {
+        margin-top: 100px;
+        animation: fadeInUp 1s ease-out forwards;
+    }
+
+    /* Optional: Adjust header background for better visibility */
+    header {
+        background: url('https://revimedplus.neocities.org/medical-bg.jpg') no-repeat center center/cover;
+        position: relative;
+    }
+
+    /* Adjust text sizes for better readability */
+    header h1 {
+        font-size: 2.8rem;
+                padding: 100px 60px; /* Add padding to separate from hero section */
+
+    }
+
+    header p {
+        font-size: 1.2rem;
+    }
+
+    /* Adjust button sizes and spacing */
+    .btn {
+        padding: 14px 35px;
+        font-size: 1.1rem;
+    }
+}
+
+/* =====================================================
+    3. Additional Animations
+===================================================== */
+
+/* Bounce-in Animation for Service Items */
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.service-item {
+    animation: bounceIn 0.8s ease forwards;
+}
+
+/* Rotate Animation for Footer Icons */
+@keyframes rotateIcon {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+footer .social-icons a {
+    display: inline-block;
+    transition: transform 0.5s;
+}
+
+footer .social-icons a:hover {
+    transform: rotate(360deg);
+}
+
+/* Slide-in from Left for Testimonials */
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.testimonial {
+    animation: slideInLeft 1s ease-out forwards;
+}
+
+/* Fade-in for Gallery Items */
+.gallery-item {
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+}
+
+.gallery-item:nth-child(odd) {
+    animation-delay: 0.2s;
+}
+
+.gallery-item:nth-child(even) {
+    animation-delay: 0.4s;
+}
+
+/* =====================================================
+    4. Ensuring Animations Do Not Affect Modals
+===================================================== */
+
+/* Prevent animations from affecting modals */
+.modal-content, .modal-header, .modal-body, .modal-footer {
+    animation: none !important;
+}
+
+/* =====================================================
+    5. Smooth Scroll Enhancements
+===================================================== */
+
+/* Ensure smooth scrolling for in-page navigation */
+html {
+    scroll-behavior: smooth;
+}
+
+/* =====================================================
+    6. Optimizing Layout for iPad Pro and Air
+===================================================== */
+
+/* Ensure hero section is properly positioned */
+#hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+}
+
+/* Adjust spacing and alignment */
+#hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+#hero p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+/* =====================================================
+    7. Additional Responsiveness Enhancements
+===================================================== */
+
+/* High-resolution iPad Pro screens */
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (orientation: landscape),
+       only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (orientation: portrait) {
+    
+    /* Adjust font sizes for larger iPads */
+    header h1 {
+        font-size: 3rem;
+    }
+
+    header p {
+        font-size: 1.3rem;
+    }
+
+    /* Optimize button sizes */
+    .btn {
+        padding: 16px 40px;
+        font-size: 1.2rem;
+    }
+
+    /* Adjust service item animations */
+    .service-item {
+        animation: bounceIn 1s ease forwards;
+    }
+
+    /* Ensure modals remain functional */
+    .modal-content {
+        max-height: 85vh;
+    }
+}
+
+/* =====================================================
+    8. Additional Accessibility Enhancements
+===================================================== */
+
+/* Ensure animations do not interfere with user preferences */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+        
+    </style>
+</head>
+<body>
+    
+    <!-- ================================================
+         Navbar
+    ================================================ -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://revimed.site/logo.png" alt="Revimed PLUS Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Navigație">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#home">Acasă <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Despre Noi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Servicii</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#pricesModal">Prețuri</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallery">Galerie</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Testimoniale</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#youtube-videos">Video-uri</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ================================================
+         Hero Section
+    ================================================ -->
+    <header id="home">
+        <div class="header-content container fade-in">
+            <h1>Centru Medical Revimed PLUS+</h1>
+            <p>Sănătatea ta, prioritatea noastră</p>
+            <a href="#services" class="btn btn-primary btn-lg mt-4">Serviciile Noastre</a>
+        </div>
+    </header>
+
+    <!-- ================================================
+         Language Buttons Below Hero
+    ================================================ -->
+    <div class="container text-center mt-4 mb-5">
+        <button class="btn btn-outline-primary mx-2 mb-2" onclick="window.location.href='https://revimed-site.translate.goog/?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en-US&_x_tr_pto=wapp'">EN</button>
+        <button class="btn btn-outline-primary mx-2 mb-2" onclick="window.location.href='https://revimed-site.translate.goog/?_x_tr_sl=auto&_x_tr_tl=ru'">RU</button>
+        <button class="btn btn-outline-primary mx-2 mb-2" onclick="window.location.href='https://revimed-site.translate.goog/?_x_tr_sl=auto&_x_tr_tl=ua'">UA</button>
+    </div>
+
+    <!-- ================================================
+         About Section
+    ================================================ -->
+    <section id="about" class="bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Despre Noi</h2>
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-4">
+                    <img src="assets/images/about-us.jpg" alt="Centru Medical Revimed PLUS+" class="about-img img-fluid">
+                </div>
+                <div class="col-md-6">
+                    <div class="about-content">
+                        <p><strong>Centru Medical Revimed PLUS+</strong> este o unitate medicală de top, fondată de <em>Dr. Igor Revenco</em> în 2006 pentru a ajuta pacienții cu probleme neurologice.</p>
+                        <p>Dr. Revenco este un medic cu înaltă experiență și calificare, cu peste <strong>32 de ani de practică</strong>, care a tratat mii de pacienți de-a lungul carierei sale.</p>
+                        <p>Specializat în tratamentul afecțiunilor sistemului nervos central și periferic, Dr. Revenco se dedică îmbunătățirii calității vieții pacienților săi.</p>
+                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#aboutModal">Află Mai Mult</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================
+         Services Section
+    ================================================ -->
+    <section id="services">
+        <div class="container">
+            <h2 class="text-center mb-5">Serviciile Noastre</h2>
+            <div class="row">
+                <!-- Serviciu 1: Consultații Neurologice -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-item">
+                        <i class="fas fa-brain fa-3x mb-3"></i>
+                        <h4>Consultații Neurologice</h4>
+                        <p>Evaluări neurologice complete pentru diagnosticarea și gestionarea diferitelor afecțiuni neurologice.</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#neurologyModal">Află Mai Mult</a>
+                    </div>
+                </div>
+                <!-- Serviciu 2: Consultații neuochirurgie -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-item">
+                        <i class="fas fa-user-md fa-3x mb-3"></i>
+                        <h4>Consultaţii Neurochirurgie</h4>
+                        <p>Consultații oferite de Dr. Igor Revenco pentru evaluarea necesității intervențiilor chirurgicale.</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#surgeryConsultModal">Află Mai Mult</a>
+                    </div>
+                </div>
+                <!-- Serviciu 3: Fizioterapie și Reabilitare -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-item">
+                        <i class="fas fa-running fa-3x mb-3"></i>
+                        <h4>Fizioterapie și Reabilitare</h4>
+                        <p>Programe personalizate de reabilitare pentru recuperarea forței și mobilității.</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#physiotherapyModal">Află Mai Mult</a>
+                    </div>
+                </div>
+                <!-- Serviciu 4: Diagnostic Funcțional -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-item">
+                        <i class="fas fa-heartbeat fa-3x mb-3"></i>
+                        <h4>Diagnostic Funcțional</h4>
+                        <p>Servicii de diagnostic funcțional pentru evaluarea și monitorizarea sănătății sistemului nervos.</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#functionalDiagnosisModal">Află Mai Mult</a>
+                    </div>
+                </div>
+                <!-- Serviciu 5: Terapie Balneară -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-item">
+                        <i class="fas fa-spa fa-3x mb-3"></i>
+                        <h4>Terapie Balneară</h4>
+                        <p>Tratamente balneare cu nămol și alte terapii complementare pentru îmbunătățirea sănătății.</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#balneotherapyModal">Află Mai Mult</a>
+                    </div>
+                </div>
+                <!-- Serviciu 6: Electroterapie -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-item">
+                        <i class="fas fa-music fa-3x mb-3"></i>
+                        <h4>Electroterapie</h4>
+                        <p>Tratament cu electrostimulare pentru ameliorarea durerilor și recuperarea musculară.</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#electrotherapyModal">Află Mai Mult</a>
+                    </div>
+                </div>
+            </div>
+     
+    <!-- ================================================
+         Modals for Services
+    ================================================ -->
+
+    <!-- Modal: Consultații Neurologice -->
+    <div class="modal fade" id="neurologyModal" tabindex="-1" role="dialog" aria-labelledby="neurologyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="neurologyModalLabel" class="modal-title">Consultații Neurologice</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Închide">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Detailed Content for Neurology Consultations -->
+                    <p><strong>Consultațiile Neurologice</strong> reprezintă un pas esențial pentru diagnosticarea și tratamentul afecțiunilor sistemului nervos central și periferic. La Revimed PLUS, utilizăm o abordare personalizată și tehnologii moderne pentru a oferi cele mai precise evaluări neurologice.</p>
+
+                    <h6>Ce include o consultație neurologică:</h6>
+                    <ul>
+                        <li><strong>Anamneza detaliată:</strong> Medicul neurolog va discuta istoricul medical al pacientului, simptomele și antecedentele familiale pentru a înțelege contextul complet al afecțiunii.</li>
+                        <li><strong>Examinarea clinică:</strong> Evaluarea reflexelor, forței musculare, coordonării, echilibrului, sensibilității și funcțiilor cognitive.</li>
+                        <li><strong>Teste neurologice specifice:</strong> Pentru detectarea afecțiunilor precum epilepsia, scleroza multiplă, boala Parkinson, migrene, neuropatii periferice și multe altele.</li>
+                    </ul>
+
+                    <h6>Afecțiuni tratate:</h6>
+                    <ul>
+                        <li>Epilepsie și tulburări convulsive.</li>
+                        <li>Scleroză multiplă și alte boli autoimune ale sistemului nervos.</li>
+                        <li>Migrene și alte tipuri de cefalee cronică.</li>
+                        <li>Boala Parkinson și tulburări ale mișcării.</li>
+                        <li>Neuropatii periferice și polineuropatii.</li>
+                        <li>Accidente vasculare cerebrale (AVC) și reabilitarea post-AVC.</li>
+                        <li>Demență, inclusiv boala Alzheimer.</li>
+                        <li>Hernii de disc și radiculopatii.</li>
+                    </ul>
+
+                    <h6>Beneficiile consultațiilor neurologice:</h6>
+                    <ul>
+                        <li><strong>Diagnostic precis:</strong> Identificarea corectă a afecțiunilor neurologice.</li>
+                        <li><strong>Plan de tratament personalizat:</strong> Fiecare pacient primește un plan adaptat nevoilor sale specifice.</li>
+                        <li><strong>Prevenție:</strong> Monitorizarea și gestionarea factorilor de risc pentru prevenirea progresiei bolilor neurologice.</li>
+                    </ul>
+
+                    <h6>Tehnologii utilizate:</h6>
+                    <p>Revimed PLUS dispune de echipamente de diagnostic moderne, inclusiv:</p>
+                    <ul>
+                        <li><strong>Electroencefalografie (EEG):</strong> Pentru monitorizarea activității electrice a creierului.</li>
+                        <li><strong>Electromiografie (EMG):</strong> Pentru evaluarea funcționării nervilor și mușchilor.</li>
+                        <li><strong>Imagistică prin rezonanță magnetică (IRM):</strong> Pentru o vizualizare detaliată a creierului și coloanei vertebrale.</li>
+                        <li><strong>Tomografie computerizată (CT):</strong> Pentru identificarea leziunilor și anomaliilor structurale.</li>
+                        <li><strong>Stimulare magnetică transcraniană (TMS):</strong> Pentru tratamentul depresiei și al altor tulburări neuropsihiatrice.</li>
+                    </ul>
+
+                    <h6>Tarife pentru consultații neurologice:</h6>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Serviciu</th>
+                                <th>Preț</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Consultație primară cu neurolog</td>
+                                <td>500 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Consultație repetată cu neurolog</td>
+                                <td>400 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Electroencefalografie (EEG)</td>
+                                <td>1000 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Electromiografie (EMG)</td>
+                                <td>800 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Imagistică IRM</td>
+                                <td>2000 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Tomografie CT</td>
+                                <td>1500 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Stimulare magnetică transcraniană (TMS)</td>
+                                <td>2500 MDL</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h6>De ce să ne alegeți?</h6>
+                    <p>La Revimed PLUS, ne angajăm să oferim pacienților cele mai bune soluții de diagnostic și tratament, combinând experiența medicilor noștri cu tehnologiile avansate disponibile în domeniul neurologiei.</p>
+                    <ul>
+                        <li>O echipă dedicată de neurologi cu experiență vastă.</li>
+                        <li>Abordare empatică și orientată către pacient.</li>
+                        <li>Planuri de tratament bazate pe cele mai recente ghiduri clinice.</li>
+                        <li>Suport continuu post-tratament pentru recuperare completă.</li>
+                        <li>Facilități moderne și confortabile pentru pacienți.</li>
+                    </ul>
+
+                    <p>Consultațiile neurologice sunt primul pas către o viață mai sănătoasă și mai activă. Pentru programări sau informații suplimentare, vă rugăm să ne contactați.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Închide</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Consultații NeuroChirurgie -->
+    <div class="modal fade" id="surgeryConsultModal" tabindex="-1" role="dialog" aria-labelledby="surgeryConsultModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="surgeryConsultModalLabel" class="modal-title">Consultații Neurochirurgie</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Închide">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Detailed Content for Surgical Consultations -->
+                    <p><strong>Consultațiile Neurochirurgie</strong> sunt disponibile pentru pacienții care necesită evaluarea detaliată a afecțiunilor lor pentru a decide dacă intervențiile chirurgicale sunt necesare.</p>
+                    <p>Dr. Igor Revenco, cu o experiență vastă în neurochirurgie, vă oferă o abordare personalizată și profesională. În cadrul consultațiilor chirurgicale:</p>
+                    <ul>
+                        <li>Nu sunt efectuate intervenții chirurgicale la Revimed PLUS. Ne concentrăm pe diagnosticarea și consultarea detaliată.</li>
+                        <li>Veți primi informații clare despre opțiunile chirurgicale și alternativele disponibile.</li>
+                        <li>Evaluările sunt realizate utilizând cele mai recente echipamente și metodologii pentru a vă asigura o înțelegere completă a stării dumneavoastră de sănătate.</li>
+                        <li>Planificarea post-operatorie pentru o recuperare rapidă și eficientă.</li>
+                        <li>Coordonarea cu alți specialiști medicali pentru tratamente comprehensive.</li>
+                    </ul>
+                    <h6>De ce să alegeți Revimed PLUS pentru consultații chirurgicale?</h6>
+                    <p>Dr. Revenco a lucrat anterior ca neurochirurg principal la Spitalul „V. Ignatenko” și a tratat cu succes mii de pacienți în cariera sa de peste 32 de ani. Expertiza sa include:</p>
+                    <ul>
+                        <li>Diagnosticul bolilor sistemului nervos central și periferic.</li>
+                        <li>Consultări pentru cazuri complexe, cum ar fi tumorile cerebrale, accidentele vasculare cerebrale și leziunile coloanei vertebrale.</li>
+                        <li>Recomandări detaliate privind intervențiile minim invazive sau metode alternative, atunci când este posibil.</li>
+                        <li>Utilizarea tehnologiilor avansate pentru intervenții chirurgicale precise și eficiente.</li>
+                        <li>Monitorizarea continuă a stării de sănătate a pacientului înainte și după intervenție.</li>
+                    </ul>
+                    <h6>Tarife pentru consultații chirurgicale:</h6>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Serviciu</th>
+                                <th>Preț</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Consultație primară cu chirurg</td>
+                                <td>300 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Consultație repetată cu chirurg</td>
+                                <td>300 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Planificare pre-operatorie</td>
+                                <td>400 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Consultație post-operatorie</td>
+                                <td>250 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Evaluare imagistică pre-chirurgicală</td>
+                                <td>1500 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Consultare multidisciplinară</td>
+                                <td>500 MDL</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h6>Cine poate beneficia de consultațiile chirurgicale?</h6>
+                    <p>Aceste consultații sunt ideale pentru pacienți care:</p>
+                    <ul>
+                        <li>Au fost diagnosticați recent cu afecțiuni care ar putea necesita intervenții chirurgicale.</li>
+                        <li>Doresc o a doua opinie de la un specialist cu experiență.</li>
+                        <li>Caută alternative non-invazive înainte de a lua o decizie privind chirurgia.</li>
+                        <li>Au nevoie de evaluări detaliate pentru planificarea tratamentului optim.</li>
+                        <li>Își doresc o abordare holistică a sănătății lor, combinând tratamentele chirurgicale cu terapii complementare.</li>
+                    </ul>
+                    <h6>Detalii despre locație și program:</h6>
+                    <p>Consultațiile se desfășoară în cadrul Centrului Medical Revimed PLUS, situat în Chișinău. Vă recomandăm să programați o consultație apelând la numărul nostru sau folosind formularul de contact de pe site.</p>
+                    <p>Pentru mai multe informații, vă rugăm să consultați tabelul nostru complet de prețuri sau să ne contactați direct.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Închide</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Fizioterapie și Reabilitare -->
+    <div class="modal fade" id="physiotherapyModal" tabindex="-1" role="dialog" aria-labelledby="physiotherapyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="physiotherapyModalLabel" class="modal-title">Fizioterapie și Reabilitare</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Închide">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Detailed Content for Physiotherapy -->
+                    <p><strong>Fizioterapie și Reabilitare</strong> sunt servicii dedicate pacienților care necesită recuperare fizică și ameliorarea durerilor musculare și articulare. Aceste programe sunt personalizate pentru nevoile fiecărui pacient.</p>
+                    <h6>Servicii oferite în cadrul fizioterapiei:</h6>
+                    <ul>
+                        <li>Electroterapie pentru stimularea musculară și reducerea inflamațiilor.</li>
+                        <li>Masaj terapeutic pentru ameliorarea durerilor și relaxare musculară.</li>
+                        <li>Programe de exerciții fizice asistate pentru îmbunătățirea mobilității.</li>
+                        <li>Fizioterapie manuală pentru restabilirea funcționalității articulațiilor.</li>
+                        <li>Reabilitare post-operatorie pentru recuperarea rapidă după intervenții chirurgicale.</li>
+                        <li>Programe de exerciții personalizate pentru îmbunătățirea echilibrului și coordonării.</li>
+                    </ul>
+                    <h6>Beneficiile fizioterapiei:</h6>
+                    <ul>
+                        <li>Ameliorarea durerilor cronice.</li>
+                        <li>Recuperarea rapidă după intervenții chirurgicale sau accidente.</li>
+                        <li>Îmbunătățirea circulației sanguine și flexibilității musculare.</li>
+                        <li>Restabilirea funcționalității complete a articulațiilor și mușchilor.</li>
+                        <li>Prevenirea recidivei leziunilor prin întărirea mușchilor și creșterea rezistenței fizice.</li>
+                        <li>Îmbunătățirea posturii și reducerea riscului de a dezvolta afecțiuni musculo-scheletale.</li>
+                    </ul>
+                    <h6>Tarife pentru fizioterapie și reabilitare:</h6>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Serviciu</th>
+                                <th>Preț</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Ședință de fizioterapie (30 min)</td>
+                                <td>150 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Masaj terapeutic (60 min)</td>
+                                <td>200 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Electroterapie combinată</td>
+                                <td>150 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Fizioterapie manuală (45 min)</td>
+                                <td>180 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Reabilitare post-operatorie (60 min)</td>
+                                <td>220 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Programe personalizate de exerciții</td>
+                                <td>300 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Reabilitare echilibrată și coordonată</td>
+                                <td>250 MDL</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>Programele noastre sunt adaptate nevoilor fiecărui pacient. Echipa noastră de specialiști utilizează echipamente moderne pentru a oferi cele mai bune rezultate posibile. Pentru mai multe informații, contactați-ne.</p>
+                    <h6>Planuri de Tratament Personalizate:</h6>
+                    <p>Fiecare pacient beneficiază de un plan de tratament personalizat, creat în funcție de nevoile și obiectivele individuale. Colaborăm strâns cu pacientul pentru a asigura o recuperare eficientă și durabilă.</p>
+                    <h6>Echipamente Moderne Utilizate:</h6>
+                    <ul>
+                        <li>Laser terapie pentru stimularea regenerării țesuturilor.</li>
+                        <li>Aplicații de rezistență variabilă pentru întărirea mușchilor.</li>
+                        <li>Programe de terapie hidro pentru recuperarea în medii controlate.</li>
+                        <li>Echipamente de biofeedback pentru monitorizarea progresului.</li>
+                        <li>Programe de exerciții asistate robotic pentru pacienții cu mobilitate redusă.</li>
+                    </ul>
+                    <h6>De ce să alegeți Fizioterapia la Revimed PLUS?</h6>
+                    <ul>
+                        <li>Echipa noastră este formată din fizioterapeuți calificați și cu experiență vastă.</li>
+                        <li>Abordare holistică pentru recuperarea completă a pacientului.</li>
+                        <li>Utilizarea tehnologiilor avansate pentru tratamente eficiente.</li>
+                        <li>Flexibilitate în programările de tratament pentru a se potrivi programului dumneavoastră.</li>
+                        <li>Monitorizarea continuă a progresului și ajustarea planului de tratament în consecință.</li>
+                    </ul>
+                    <p>Fizioterapia este esențială pentru recuperarea după leziuni, intervenții chirurgicale sau pentru gestionarea durerilor cronice. Echipa noastră vă stă la dispoziție pentru a vă ajuta să vă recăpătați mobilitatea și să vă îmbunătățiți calitatea vieții.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Închide</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Diagnostic Funcțional -->
+    <div class="modal fade" id="functionalDiagnosisModal" tabindex="-1" role="dialog" aria-labelledby="functionalDiagnosisModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="functionalDiagnosisModalLabel" class="modal-title">Diagnostic Funcțional</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Închide">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Detailed Content for Functional Diagnosis -->
+                    <p><strong>Diagnostic Funcțional</strong> oferă pacienților evaluări detaliate utilizând tehnologii avansate pentru diagnosticarea afecțiunilor sistemului nervos.</p>
+                    <h6>Servicii incluse:</h6>
+                    <ul>
+                        <li>Electroencefalografie (EEG) pentru evaluarea activității cerebrale.</li>
+                        <li>Electromiografie (EMG) pentru analiza funcționării mușchilor și nervilor.</li>
+                        <li>Teste funcționale pentru identificarea problemelor neurologice subtile.</li>
+                        <li>Evaluări cognitive pentru monitorizarea funcțiilor cerebrale.</li>
+                        <li>Teste de reacție și coordonare pentru evaluarea sistemului motor.</li>
+                    </ul>
+                    <h6>Beneficiile diagnosticării funcționale:</h6>
+                    <ul>
+                        <li>Detectarea precoce a afecțiunilor neurologice.</li>
+                        <li>Monitorizarea eficienței tratamentului aplicat.</li>
+                        <li>Planificarea unui tratament personalizat.</li>
+                        <li>Identificarea necesităților de reabilitare și recuperare.</li>
+                        <li>Evaluarea impactului afecțiunilor asupra funcțiilor zilnice.</li>
+                    </ul>
+                    <h6>Tarife:</h6>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Serviciu</th>
+                                <th>Preț</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Electroencefalografie (EEG)</td>
+                                <td>1000 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Electromiografie (EMG)</td>
+                                <td>800 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Teste funcționale neurologice</td>
+                                <td>500 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Evaluări cognitive</td>
+                                <td>700 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Teste de reacție și coordonare</td>
+                                <td>600 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Evaluare completă a sistemului motor</td>
+                                <td>900 MDL</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>Diagnosticul funcțional este esențial pentru pacienții care se confruntă cu afecțiuni neurologice complexe. Echipa noastră de experți vă va ghida în fiecare etapă a procesului diagnostic.</p>
+                    <h6>Procesul de Diagnostic Funcțional:</h6>
+                    <ul>
+                        <li><strong>Consultație inițială:</strong> Discutarea simptomelor și istoricului medical.</li>
+                        <li><strong>Planificarea testelor:</strong> Selectarea testelor adecvate în funcție de nevoile pacientului.</li>
+                        <li><strong>Realizarea testelor:</strong> Efectuarea testelor în condiții controlate și sigure.</li>
+                        <li><strong>Analiza rezultatelor:</strong> Evaluarea datelor colectate și stabilirea unui diagnostic precis.</li>
+                        <li><strong>Planificarea tratamentului:</strong> Elaborarea unui plan de tratament personalizat bazat pe rezultatele diagnosticării.</li>
+                        <li><strong>Monitorizarea progresului:</strong> Evaluarea continuă a eficienței tratamentului și ajustarea acestuia dacă este necesar.</li>
+                    </ul>
+                    <h6>De ce să ne alegeți pentru Diagnostic Funcțional?</h6>
+                    <ul>
+                        <li>Utilizarea celor mai moderne tehnologii și echipamente de diagnostic.</li>
+                        <li>O echipă de specialiști cu experiență în neurologie și diagnostic funcțional.</li>
+                        <li>Abordare personalizată pentru fiecare pacient în parte.</li>
+                        <li>Confidențialitate și siguranță în procesul de diagnosticare.</li>
+                        <li>Suport continuu și consiliere post-diagnostic.</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Închide</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Terapie Balneară -->
+    <div class="modal fade" id="balneotherapyModal" tabindex="-1" role="dialog" aria-labelledby="balneotherapyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="balneotherapyModalLabel" class="modal-title">Terapie Balneară</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Închide">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Detailed Content for Balneotherapy -->
+                    <p><strong>Terapie Balneară</strong> oferă tratamente naturale cu nămol, ape termale și alte terapii complementare pentru relaxare și recuperare.</p>
+                    <h6>Servicii oferite:</h6>
+                    <ul>
+                        <li>Băi curative cu nămol terapeutic.</li>
+                        <li>Hidroterapie cu ape minerale.</li>
+                        <li>Saune și terapii detoxifiante.</li>
+                        <li>Tratament cu ape termale bogate în minerale.</li>
+                        <li>Masaj cu nămol pentru revitalizarea mușchilor.</li>
+                        <li>Terapie cu vitamine și minerale absorbite prin piele.</li>
+                    </ul>
+                    <h6>Beneficii:</h6>
+                    <ul>
+                        <li>Relaxare musculară și reducerea stresului.</li>
+                        <li>Îmbunătățirea circulației sanguine.</li>
+                        <li>Eliminarea toxinelor din organism.</li>
+                        <li>Ameliorarea durerilor articulare și musculare.</li>
+                        <li>Stimularea metabolismului și a sistemului imunitar.</li>
+                        <li>Promovarea unei stări generale de bine și echilibru interior.</li>
+                    </ul>
+                    <h6>Tarife:</h6>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Serviciu</th>
+                                <th>Preț</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Băi curative cu nămol</td>
+                                <td>150 MDL/sesiune</td>
+                            </tr>
+                            <tr>
+                                <td>Hidroterapie</td>
+                                <td>200 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>Sauna terapeutică</td>
+                                <td>250 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>Masaj cu nămol (60 min)</td>
+                                <td>300 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Terapie cu vitamine și minerale</td>
+                                <td>350 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>Tratament combinat hidroterapie + masaj</td>
+                                <td>400 MDL/oră</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>Tratamentele balneare sunt ideale pentru pacienții care doresc să-și îmbunătățească starea generală de sănătate. Contactați-ne pentru mai multe informații și rezervări.</p>
+                    <h6>De ce să alegeți Terapia Balneară la Revimed PLUS?</h6>
+                    <ul>
+                        <li>Echipamente moderne și facilități de top pentru tratamente eficiente.</li>
+                        <li>Personal calificat și cu experiență în administrarea tratamentelor balneare.</li>
+                        <li>Abordare holistică care combină tratamentele tradiționale cu terapiile moderne.</li>
+                        <li>Program flexibil pentru a se potrivi nevoilor dumneavoastră.</li>
+                        <li>Medicamente și suplimente naturale pentru susținerea tratamentului.</li>
+                    </ul>
+                    <h6>Testimoniale:</h6>
+                    <div class="testimonial">
+                        <p>"Terapia balneară mi-a schimbat viața. După câteva sesiuni, am simțit o îmbunătățire semnificativă în mobilitatea și starea mea generală."</p>
+                        <h5 class="mt-3">- Ioana M.</h5>
+                    </div>
+                    <div class="testimonial mt-3">
+                        <p>"Echipa Revimed PLUS a fost extrem de profesionistă și atentă. Tratamentul balnear mi-a oferit relaxare și ameliorarea durerilor cronice."</p>
+                        <h5 class="mt-3">- Mihai D.</h5>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Închide</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Electroterapie -->
+    <div class="modal fade" id="electrotherapyModal" tabindex="-1" role="dialog" aria-labelledby="electrotherapyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="electrotherapyModalLabel" class="modal-title">Electroterapie</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Închide">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Detailed Content for Electrotherapy -->
+                    <p><strong>Electroterapie</strong> folosește tehnologia modernă pentru a stimula regenerarea musculară și a reduce durerile.</p>
+                    <h6>Servicii disponibile:</h6>
+                    <ul>
+                        <li>Electrostimulare pentru reabilitare musculară.</li>
+                        <li>Electroneurostimulare pentru gestionarea durerilor cronice.</li>
+                        <li>Electroterapie combinată cu masaj terapeutic.</li>
+                        <li>Stimuli electrici de joasă frecvență pentru reducerea inflamațiilor.</li>
+                        <li>Terapie cu ultrasunete pentru îmbunătățirea vindecării țesuturilor.</li>
+                        <li>Terapie cu curenți continui și alternanți pentru diversificarea tratamentului.</li>
+                    </ul>
+                    <h6>Tarife:</h6>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Serviciu</th>
+                                <th>Preț</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Electrostimulare musculară</td>
+                                <td>150 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>Electroneurostimulare</td>
+                                <td>150 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>Electroterapie combinată</td>
+                                <td>200 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>Terapie cu ultrasunete (30 min)</td>
+                                <td>180 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Terapie cu curenți alternanți</td>
+                                <td>150 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>Terapie cu curenți continui</td>
+                                <td>150 MDL/oră</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>Electroterapia este potrivită pentru pacienți care suferă de dureri cronice sau care necesită reabilitare musculară. Echipa noastră vă stă la dispoziție pentru orice întrebări.</p>
+                    <h6>De ce să alegeți Electroterapia la Revimed PLUS?</h6>
+                    <ul>
+                        <li>Utilizarea echipamentelor de ultimă generație pentru tratamente eficiente.</li>
+                        <li>Personal specializat în administrarea terapiei electroterapeutice.</li>
+                        <li>Planuri de tratament personalizate pentru fiecare pacient.</li>
+                        <li>Monitorizarea continuă a progresului pentru ajustarea tratamentului.</li>
+                        <li>Abordare holistică care combină electroterapia cu alte terapii complementare.</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Închide</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ================================================
+         Additional Buttons
+    ================================================ -->
+    <div class="container text-center mt-4 mb-5">
+        <button class="btn custom-btn btn-primary" data-toggle="modal" data-target="#pricesModal">
+            <i class="fas fa-table"></i> Vezi Tabel de Prețuri
+        </button><br><br>
+        <button class="btn custom-btn btn-secondary ml-3" data-toggle="modal" data-target="#converterModal">
+            <i class="fas fa-exchange-alt"></i> Convertor Valutar  
+        </button>
+    </div>
+
+    <!-- ================================================
+         About Modal
+    ================================================ -->
+    <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="aboutModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="aboutModalLabel" class="modal-title">Despre Centru Medical Revimed PLUS+</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Închide">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Detailed Content for About Modal -->
+                    <p><strong>Revimed Medical Center</strong> este o unitate medicală de top, fondată de <i>Dr. Igor Revenco</i> în 2006 pentru a ajuta pacienții cu probleme neurologice.</p>
+                    <p>Dr. Revenco este un medic cu înaltă experiență și calificare, cu peste <strong>32 de ani de practică</strong>, care a tratat mii de pacienți de-a lungul carierei sale.</p>
+                    <p>Specializat în diagnosticul și tratamentul bolilor sistemului nervos central și periferic, diagnostic funcțional psihodedactic, psihoterapie, neuro-reabilitare, medicină tradițională, acupunctură, tratament balnear și fizioterapie, <i>Dr. Revenco</i> și echipa sa de la <strong>Revimed</strong> sunt dedicați să ofere cel mai înalt nivel de îngrijire pacienților lor.</p>
+                    <p><i>Dr. Revenco</i> și-a făcut studiile la Universitatea de Stat de <strong>Medicină și Farmacie „N. Testemițanu”</strong>, unde și-a finalizat stagiul de practică în specialitatea <strong>„Doctor Terapeut”</strong> și a câștigat doctoratul. Apoi a lucrat ca <b>neurochirurg</b> la Spitalul nr. 3 V. Ignatenko înainte de a fonda <b>Revimed Medical Center</b>.</p>
+                    <p>Pe lângă vasta sa experiență de lucru, <i>Dr. Revenco</i> a publicat <b>53 de lucrări științifice</b> în domeniul <b>neurochirurgiei, neurologiei și reabilitării neuronale</b>, a primit un <b>brevet pentru invenția „Aparatul Revimed vertebro”</b> și este membru al <b>Asociației Europene a Neurochirurgilor</b>.</p>
+                    <p>La <b>Revimed Medical Center</b>, pacienții primesc îngrijire de înaltă calitate folosind tehnologii moderne și practici tradiționale, sub îndrumarea <i>Dr. Igor Revenco</i> și echipei sale de profesioniști medicali.</p>
+                    <p><i>Centrul Medical Revimed este situat convenabil în zona Ciocana a Chișinăului, oferind acces facil pacienților prin transport public și o locație lângă restaurantul „Select.”</i></p>
+                    <center>
+                        <p>
+                            Descoperiți <a href="#services" class="menu-link">gama noastră de servicii</a> sau 
+                            <a href="#contact" class="menu-link">contactați-ne</a> pentru întrebări suplimentare.
+                        </p>
+                    </center>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Închide</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================================================
+         Prices Modal
+    ================================================ -->
+    <div class="modal fade" id="pricesModal" tabindex="-1" role="dialog" aria-labelledby="pricesModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="pricesModalLabel" class="modal-title">Tabel de Prețuri</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Închide">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Tabel Consultații de Specialitate -->
+                    <h6>Consultații de Specialitate</h6>
+                    <table class="table table-bordered">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Serviciu</th>
+                                <th>Preț</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Consultație primară cu neurolog</td>
+                                <td>500 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Consultație repetată de către medicul neurolog</td>
+                                <td>400 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Consultație primară cu neurochirurg</td>
+                                <td>300 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Consultație repetată de către neurochirurg</td>
+                                <td>300 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Consultație primară cu medic internist</td>
+                                <td>300 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Consultație repetată de către medic internist</td>
+                                <td>200 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Consultație primară cu medic fitoterapeut</td>
+                                <td>500 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Consultație primară cu reflexolog</td>
+                                <td>500 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Consultație repetată de către reflexolog</td>
+                                <td>400 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Consultație psihoterapeut</td>
+                                <td>300 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Consultație primară cu acupuncturist</td>
+                                <td>400 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Consultație repetată cu acupuncturist</td>
+                                <td>350 MDL</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- Tabel Diagnostic Funcțional -->
+                    <h6>Diagnostic Funcțional</h6>
+                    <table class="table table-bordered">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Serviciu</th>
+                                <th>Preț</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Cartografierea creierului computerizată Examinare neuroenergometrică</td>
+                                <td>600 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Examinare electroencefalografică computerizată cu teste funcționale (foto-fonostimulare)</td>
+                                <td>1000 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Examinare computerizată cu electrospondilografie</td>
+                                <td>800 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Examinare electrocardiografică ECG computerizată</td>
+                                <td>200 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Testări electrodiagnostice computerizate ale sistemelor și organelor umane (MEDISKRIN PROFESSIONAL)</td>
+                                <td>800 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Examinare EHO - Encefalografie</td>
+                                <td>250 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Examinarea cu ultrasunete a organelor interne</td>
+                                <td>250 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Examen expres de laborator Uro-test</td>
+                                <td>200 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>EXAMINARE NEINVAZIVĂ - 117 indici clinici (Biopromin AMP-Tech - analiza biochimică a sângelui + semne vitale + hemocirculația organelor)</td>
+                                <td>1000 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>TERMALGOMETRIE /RUNO/ - Testarea cu feedback computerizat a sistemului nervos vegetativ</td>
+                                <td>500 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Evaluare funcțională neuropsihologică</td>
+                                <td>700 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Testare cognitivă avansată</td>
+                                <td>800 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Evaluare biomecanică a mișcării</td>
+                                <td>600 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Evaluare ergonomică personalizată</td>
+                                <td>550 MDL</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- Tabel Testări Psihodiagnostice -->
+                    <h6>Testări Psihodiagnostice Computerizate</h6>
+                    <table class="table table-bordered">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Serviciu</th>
+                                <th>Preț</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>MMPI</td>
+                                <td>200 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Testări psihologice LUSCHER</td>
+                                <td>200 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Testări psihologice Sondy</td>
+                                <td>200 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Psihoterapie</td>
+                                <td>300 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Test de personalitate</td>
+                                <td>250 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Test de inteligență emoțională</td>
+                                <td>300 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Evaluare psihosocială</td>
+                                <td>350 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Test de stres post-traumatic</td>
+                                <td>400 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Evaluare a funcțiilor executive</td>
+                                <td>300 MDL</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- Tabel Echipamente și Metode Curative -->
+                    <h6>Echipamente și Metode Curative</h6>
+                    <table class="table table-bordered">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Serviciu</th>
+                                <th>Preț</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Băi curative cu nămol din SAKI (Crimeea), Hidrosulfurică (sare MATSETA din Georgia), Cu magneziu, Băi cu IodoBrom, Turbintina, Extract de pin. Băi de slăbit.</td>
+                                <td>150 MDL/sesiune</td>
+                            </tr>
+                            <tr>
+                                <td>Aeroionoterapia în peștera de sare</td>
+                                <td>100 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>Sauna curativă cu plante</td>
+                                <td>250 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>Fizioterapie + Naturoterapie</td>
+                                <td>150 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>Vibro-masaj cranial</td>
+                                <td>150 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>Instructor Visus computerizat (tratamentul, prevenirea miopiei)</td>
+                                <td>150 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>AVS (stimularea creierului audio-video cu alfa, beta, theta)</td>
+                                <td>150 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>Darsanvalizare</td>
+                                <td>150 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>Ozonoterapia</td>
+                                <td>150 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>Electropunctură-Subosi</td>
+                                <td>150 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>Magnetoterapie</td>
+                                <td>150 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>Masaj KDJ</td>
+                                <td>150 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>JAD-masaj (Pat cu pietre de jad)</td>
+                                <td>150 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>Vibromasaj de relaxare</td>
+                                <td>150 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>Electroneurostimulare</td>
+                                <td>150 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>Fototerapie, Cromoterapie</td>
+                                <td>60 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Radamir-3(FRI) - Program cu frecvențe de biorezonanță - revitalizare</td>
+                                <td>150 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>Radamir4(CVC) - Programul de frecvență a biorezonanței antiparazitare CVC</td>
+                                <td>150 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>Raze infraroșii + ultraviolete</td>
+                                <td>60 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Electroforeză medicală</td>
+                                <td>150 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>Vibrofonoterapie /Vitafon/</td>
+                                <td>150 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>Electroacupunctură</td>
+                                <td>150 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>Electrosomn</td>
+                                <td>150 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>Fototerapie-Bioptron</td>
+                                <td>150 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>Farmacopunctură, Mezoterapie</td>
+                                <td>100 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Electrostimulare plantară/LANAFORM/</td>
+                                <td>150 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>Masajul plantar Vibro-Infraroșu</td>
+                                <td>150 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>Acupunctura auriculară</td>
+                                <td>100 MDL/sesiune</td>
+                            </tr>
+                            <tr>
+                                <td>Acupunctura corporală</td>
+                                <td>150 MDL/sesiune</td>
+                            </tr>
+                            <tr>
+                                <td>Terapia cu laser</td>
+                                <td>150 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>Masaj general</td>
+                                <td>200 MDL/60 min</td>
+                            </tr>
+                            <tr>
+                                <td>Terapia cu ultrasunete</td>
+                                <td>150 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>Terapia - Fotocataliza magnetică</td>
+                                <td>150 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>Detoxifierea organismului ION-DETOX</td>
+                                <td>250 MDL</td>
+                            </tr>
+                            <tr>
+                                <td>Terapia cu Amplipuls</td>
+                                <td>150 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>Electrostimulare mezodiencefalică transcraniană</td>
+                                <td>150 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>Terapie combinată magnetoterapie + acupunctură</td>
+                                <td>200 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>Biofeedback pentru controlul stresului</td>
+                                <td>180 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>Masaj terapeutic profund</td>
+                                <td>220 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>Terapie cu vibrații</td>
+                                <td>160 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>Programe de reabilitare neuro-motorie</td>
+                                <td>300 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>Tratament combinat electroterapie + kinetoterapie</td>
+                                <td>250 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>Terapie cu frecvențe de biorezonanță</td>
+                                <td>150 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>Electroterapie integrată</td>
+                                <td>200 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>Reabilitare cu tehnologie avansată</td>
+                                <td>300 MDL/oră</td>
+                            </tr>
+                            <tr>
+                                <td>Programe personalizate de recuperare</td>
+                                <td>350 MDL/oră</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- Panel Combinații Fizioterapie -->
+                    <div class="panel panel-info mt-4">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Combinați Ședințe de Fizioterapie</h3>
+                        </div>
+                        <div class="panel-body">
+                            <p>Înțelegem că programul fiecăruia este diferit și de aceea oferim opțiunea de a combina 2 proceduri cu diferite aparate fisioterapeutice, fiecare cu durata de 30 de minute, plătind 150 MDL pentru o oră întreagă de proceduri de fisioterapie.</p>
+                            <p>În acest fel, puteți să vă încadrați ședințele de fisioterapie în programul încărcat și să beneficiați în continuare de aceleași beneficii ca o sesiune de o oră întreagă.</p>
+                            <p>Vă rugăm să discutați cu unul dintre medici noștri pentru a afla mai multe despre această opțiune.</p>
+                        </div>
+                    </div>
+                    <p>Pe lângă aceste servicii, oferim și o serie de servicii medicale suplimentare. Simțiți-vă liber să <a href="#contact">ne contactați</a> pentru a afla mai multe.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Închide</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================================================
+         Converter Modal
+    ================================================ -->
+    <div class="modal fade" id="converterModal" tabindex="-1" role="dialog" aria-labelledby="converterModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="converterModalLabel" class="modal-title">Convertor Valutar</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Închide">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Currency Converter Content -->
+                    <div id="converter">
+                        <h1 class="text-center mb-4">Convertor Valutar</h1>
+                        <form id="currencyConverterForm">
+                            <div class="form-group">
+                                <input type="number" id="amount" class="form-control" placeholder="Introduceți suma" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="currencies">Selectați moneda:</label>
+                                <select id="currencies" class="form-control" required>
+                                    <option value="">--Selectați--</option>
+                                    <option value="mdlron">MDL în RON</option>
+                                    <option value="mdlusd">MDL în USD</option>
+                                    <option value="mdluah">MDL în UAH</option>
+                                    <option value="mdlgbp">MDL în GBP</option>
+                                    <option value="mdleur">MDL în EUR</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Convert</button>
+                        </form>
+                        <p id="result" class="mt-3 text-center font-weight-bold"></p>
+                        <div id="message" class="text-center mt-2" style="background-color: rgba(0, 0, 0, 0.1); padding: 10px; color: #555;">Tarif aproximativ</div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Închide</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================================================
+         Gallery Section
+    ================================================ -->
+    <section id="gallery">
+        <div class="container">
+            <h2 class="text-center mb-5">Galerie</h2>
+            <div class="row justify-content-center">
+                <!-- Galerie Item 1 -->
+                <div class="col-md-4 mb-4 d-flex justify-content-center">
+                    <img src="http://revimed.site/pictures/2pic.jpg" alt="Echipamente Medicale" class="gallery-item img-fluid rounded">
+                </div>
+                <!-- Galerie Item 2 -->
+                <div class="col-md-4 mb-4 d-flex justify-content-center">
+                    <img src="http://revimed.site/pictures/1pic.jpg" alt="Sala de Consultații" class="gallery-item img-fluid rounded">
+                </div>
+                <!-- Galerie Item 3 -->
+                <div class="col-md-4 mb-4 d-flex justify-content-center">
+                    <img src="http://revimed.site/pictures/3.jpg" alt="Reabilitare" class="gallery-item img-fluid rounded">
+                </div>
+                <!-- Galerie Item 4 -->
+                <div class="col-md-4 mb-4 d-flex justify-content-center">
+                    <img src="http://revimed.site/pictures/pre.jpg" alt="Facilități Moderne" class="gallery-item img-fluid rounded">
+                </div>
+                <!-- Galerie Item 5 -->
+                <div class="col-md-4 mb-4 d-flex justify-content-center">
+                    <img src="http://revimed.site/pictures/pre1.jpg" alt="Personal Medical" class="gallery-item img-fluid rounded">
+                </div>
+                <!-- Galerie Item 6 -->
+                <div class="col-md-4 mb-4 d-flex justify-content-center">
+                    <img src="http://revimed.site/pictures/31.jpg" alt="Clinic" class="gallery-item img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================
+         YouTube Videos Section
+    ================================================ -->
+    <section id="youtube-videos" class="bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Video-urile Noastre</h2>
+            <div class="row">
+                <!-- Video 1 -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/yW9QT_5vY9g" 
+                                title="YouTube video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <!-- Video 2 -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/GDsRT_Eit-I" 
+                                title="YouTube video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <!-- Video 3 -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/ru1T_-mCWRA" 
+                                title="YouTube video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <!-- Video 4 -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/RAt78Iwn1RU" 
+                                title="YouTube video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <!-- Video 5 -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/QRavmD7bKjw" 
+                                title="YouTube video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================
+         Contact Section
+    ================================================ -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="text-center mb-5">Contactați-ne</h2>
+            <div class="row mb-4">
+                <!-- Contact Information -->
+                <div class="col-md-6 mb-4">
+                    <p><strong>Fix:</strong> (022) 60-50-60</p>
+                    <p><strong>Telefon:</strong> (+373) 069773816</p>
+                    <p><strong>Telefon Alternativ:</strong> (+373) 079422908</p>
+                    <p><strong>Email:</strong> <a href="mailto:doctor-revenco@ya.ru">doctor-revenco@ya.ru</a></p>
+                    <p><strong>Adresa:</strong> str. Mircea cel Bătrân 13/2, Sector Ciocana, Chișinău</p>
+                </div>
+                <!-- Working Hours -->
+                <div class="col-md-6 mb-4">
+                    <div class="working-hours p-3 rounded">
+                        <h3>Program de lucru:</h3>
+                        <p>De luni până vineri: <strong>09:00 - 16:00</strong></p>
+                        <p>Weekend: <strong>Închis</strong></p>
+                    </div>
+                    <!-- Map Link -->
+                    <div class="mt-3">
+                        <p>
+                            <a href="https://www.google.com/maps/place/REVIMED+-+Neurologie,+Diagnostic+Functional+si+Reabilitare,Salina+SPA./@47.0477497,28.8842622,17z/data=!3m1!4b1!4m5!3m4!1s0x40c97c92cf964149:0x39935b1c7bfd85fa!8m2!3d47.0477461!4d28.8887469?hl=en" 
+                               target="_blank" 
+                               class="btn btn-info btn-sm" 
+                               style="color: black;">
+                                <i class="fas fa-map-marker-alt"></i> Aici Mapa
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Transportation Info -->
+            <div class="transport-info d-flex justify-content-center flex-wrap mb-4">
+                <span>&#128652; Autobuz: <a href="#">113</a>, <a href="#">23</a>, <a href="#">5</a></span>
+                <span class="ml-3">&#128654; Troleibuz: <a href="#">12</a>, <a href="#">23</a>, <a href="#">24</a></span>
+                <span class="ml-3">&#128661; Tramvai: <a href="#">7</a>, <a href="#">10</a></span>
+          
+            </div>
+            <!-- Image Gallery -->
+            <div class="gallery d-flex justify-content-center mb-4">
+                <img class="gallery-item mx-2" src="/6.jpg" alt="Centrul Medical Revimed" style="width: 150px;">
+                <img class="gallery-item mx-2" src="pictures/1.jpg" alt="Centrul Medical Revimed" style="width: 150px;">
+            </div>
+            <!-- Google Map -->
+            <div class="text-center">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2718.616804240469!2d28.88426222989308!3d47.047749667734834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c97c92cf964149%3A0x39935b1c7bfd85fa!2sREVIMED%20-%20Neurologie%2C%20Diagnostic%20Functional%20si%20Reabilitare%2CSalina%20SPA.!5e0!3m2!1sen!2sus!4v1674255096722!5m2!1sen!2sus" 
+                        width="100%" 
+                        height="300" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================
+         Testimonials Section
+    ================================================ -->
+    <section id="testimonials">
+        <div class="container">
+            <h2 class="text-center mb-5">Ce Spun Pacienții Noștri</h2>
+            <div class="row">
+                <!-- Testimonial 1 -->
+                <div class="col-md-6 mb-4">
+                    <div class="testimonial">
+                        <p>"După mult timp de umblat pe la medici, s-a depistat, în sfârșit, problema și am primit un tratament cu rezultat pozitiv. Mulțumesc mult, domnule Igor!"</p>
+                        <h5 class="mt-3">- DR R</h5>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="col-md-6 mb-4">
+                    <div class="testimonial">
+                        <p>"Super!"</p>
+                        <h5 class="mt-3">- Alexei Mitu</h5>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="col-md-6 mb-4">
+                    <div class="testimonial">
+                        <p>"Dr. Revenko a acordat atenție problemei noastre și nu a rămas indiferent. Ne-a trimis la examinări detaliate și a prescris un tratament natural care a ajutat copilul."</p>
+                        <h5 class="mt-3">- Yuliana Matveichenko</h5>
+                    </div>
+                </div>
+                <!-- Testimonial 4 -->
+                <div class="col-md-6 mb-4">
+                    <div class="testimonial">
+                        <p>"Dr. Igor Revenco este un geniu. Recomand din toată inima."</p>
+                        <h5 class="mt-3">- Daniel Revenco</h5>
+                    </div>
+                </div>
+                <!-- Testimonial 5 -->
+                <div class="col-md-6 mb-4">
+                    <div class="testimonial">
+                        <p>"Recomand Centrul Revimed! Personal foarte amabil! Domnul Revenco este un doctor experimentat care a depistat problema copilului meu la timp."</p>
+                        <h5 class="mt-3">- Nita Anastasia</h5>
+                    </div>
+                </div>
+                <!-- Testimonial 6 -->
+                <div class="col-md-6 mb-4">
+                    <div class="testimonial">
+                        <p>"Sunt foarte mulțumită. După 4 luni de dureri extreme, am găsit un doctor care mi-a explicat clar ce am și mi-a oferit un tratament eficient."</p>
+                        <h5 class="mt-3">- Liliana Feraru</h5>
+                    </div>
+                </div>
+                <!-- Testimonial 7 -->
+                <div class="col-md-6 mb-4">
+                    <div class="testimonial">
+                        <p>"Am rămas fără cuvinte. În sfârșit, un doctor competent care a rezolvat o problemă veche pe care nimeni nu o putea soluționa."</p>
+                        <h5 class="mt-3">- Anna Arret</h5>
+                    </div>
+                </div>
+                <!-- Testimonial 8 -->
+                <div class="col-md-6 mb-4">
+                    <div class="testimonial">
+                        <p>"Am fost la o consultație la clinica Revimed și am fost foarte mulțumit. Domnul Igor Revenco este un neurolog competent și atent."</p>
+                        <h5 class="mt-3">- Dany N</h5>
+                    </div>
+                </div>
+                <!-- Testimonial 9 -->
+                <div class="col-md-6 mb-4">
+                    <div class="testimonial">
+                        <p>"Dr. Revenco m-a ajutat pe mine și pe familia mea să găsim soluții la probleme care ne-au chinuit mult timp. Un adevărat profesionist care își implică 100% sufletul în munca sa."</p>
+                        <h5 class="mt-3">- Ella Sonia</h5>
+                    </div>
+                </div>
+                <!-- Testimonial 10 -->
+                <div class="col-md-6 mb-4">
+                    <div class="testimonial">
+                        <p>"În mai puțin de o lună de la începerea tratamentului copilului, am observat rezultate mult așteptate. Mulțumim mult domnului Igor și echipei Revimed!"</p>
+                        <h5 class="mt-3">- Alina Ichim</h5>
+                    </div>
+                </div>
+                <!-- Testimonial 11 -->
+                <div class="col-md-6 mb-4">
+                    <div class="testimonial">
+                        <p>"Un doctor profesionist care își face munca la superlativ. Sunt foarte mulțumită de serviciile oferite de Revimed."</p>
+                        <h5 class="mt-3">- Maria Ceban</h5>
+                    </div>
+                </div>
+                <!-- Testimonial 12 -->
+                <div class="col-md-6 mb-4">
+                    <div class="testimonial">
+                        <p>"Clinica este super. Doctorul este un profesionist cum rar întâlnești."</p>
+                        <h5 class="mt-3">- Mike Kr</h5>
+                    </div>
+                </div>
+                <!-- Testimonial 13 -->
+                <div class="col-md-6 mb-4">
+                    <div class="testimonial">
+                        <p>"Am avut o experiență excelentă la Revimed PLUS. Personalul este extrem de amabil și profesionist."</p>
+                        <h5 class="mt-3">- Elena Popescu</h5>
+                    </div>
+                </div>
+                <!-- Testimonial 14 -->
+                <div class="col-md-6 mb-4">
+                    <div class="testimonial">
+                        <p>"Dr. Revenco a fost foarte atent și a explicat totul în detaliu. Recomand cu încredere."</p>
+                        <h5 class="mt-3">- Sergiu Ionescu</h5>
+                    </div>
+                </div>
+                <!-- Testimonial 15 -->
+                <div class="col-md-6 mb-4">
+                    <div class="testimonial">
+                        <p>"Revimed PLUS m-a ajutat să mă recuperez complet după accident. Sunt foarte recunoscător!"</p>
+                        <h5 class="mt-3">- Ion Petrescu</h5>
+                    </div>
+                </div>
+                <!-- Testimonial 16 -->
+                <div class="col-md-6 mb-4">
+                    <div class="testimonial">
+                        <p>"Calitatea serviciilor este excelentă. Am primit tratamente eficiente și am observat îmbunătățiri rapide."</p>
+                        <h5 class="mt-3">- Andreea Mihai</h5>
+                    </div>
+                </div>
+                <!-- Testimonial 17 -->
+                <div class="col-md-6 mb-4">
+                    <div class="testimonial">
+                        <p>"Echipa Revimed PLUS este dedicată și profesionistă. M-am simțit în siguranță și bine îngrijit."</p>
+                        <h5 class="mt-3">- Vlad Rusu</h5>
+                    </div>
+                </div>
+                <!-- Testimonial 18 -->
+                <div class="col-md-6 mb-4">
+                    <div class="testimonial">
+                        <p>"Tratamentul oferit de Revimed PLUS a fost exact ceea ce aveam nevoie. Mulțumesc din suflet!"</p>
+                        <h5 class="mt-3">- Gabriela Dumitrescu</h5>
+                    </div>
+                </div>
+                <!-- Testimonial 19 -->
+                <div class="col-md-6 mb-4">
+                    <div class="testimonial">
+                        <p>"Am fost impresionat de profesionalismul și dedicarea echipei Revimed PLUS. Recomand cu încredere!"</p>
+                        <h5 class="mt-3">- Daniel Pop</h5>
+                    </div>
+                </div>
+                <!-- Testimonial 20 -->
+                <div class="col-md-6 mb-4">
+                    <div class="testimonial">
+                        <p>"Revimed PLUS m-a ajutat să-mi recâștig mobilitatea și să-mi reduc durerile cronice. Sunt foarte mulțumit de rezultate."</p>
+                        <h5 class="mt-3">- Laura Georgescu</h5>
+                    </div>
+                </div>
+                <!-- Testimonial 21 -->
+                <div class="col-md-6 mb-4">
+                    <div class="testimonial">
+                        <p>"Serviciile oferite de Revimed PLUS sunt de cea mai bună calitate. Am fost mereu bine informat și susținut."</p>
+                        <h5 class="mt-3">- Mihnea Radu</h5>
+                    </div>
+                </div>
+                <!-- Testimonial 22 -->
+                <div class="col-md-6 mb-4">
+                    <div class="testimonial">
+                        <p>"Datorită Revimed PLUS, am reușit să mă recuperez complet după accident. Sunt recunoscător întregii echipe."</p>
+                        <h5 class="mt-3">- Andrei Popa</h5>
+                    </div>
+                </div>
+                <!-- Testimonial 23 -->
+                <div class="col-md-6 mb-4">
+                    <div class="testimonial">
+                        <p>"Profesionalismul și empatia echipei Revimed PLUS m-au ajutat să trec peste momentele dificile."</p>
+                        <h5 class="mt-3">- Ioana Stan</h5>
+                    </div>
+                </div>
+                <!-- Testimonial 24 -->
+                <div class="col-md-6 mb-4">
+                    <div class="testimonial">
+                        <p>"Am găsit aici soluții eficiente pentru problemele mele neurologice. Sunt foarte mulțumit de tratament."</p>
+                        <h5 class="mt-3">- Alina Tudor</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================
+         Footer
+    ================================================ -->
+    <footer>
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- Quick Links -->
+                <div class="col-md-6 mb-3">
+                    <h6>Linkuri Rapide</h6>
+                    <ul class="d-flex flex-wrap justify-content-center">
+                        <li class="mr-3"><a href="#home">Acasă</a></li>
+                        <li class="mr-3"><a href="#about">Despre Noi</a></li>
+                        <li class="mr-3"><a href="#services">Servicii</a></li>
+                        <li class="mr-3"><a href="#gallery">Galerie</a></li>
+                        <li class="mr-3"><a href="#youtube-videos">Video-uri</a></li>
+                        <li class="mr-3"><a href="#testimonials">Testimoniale</a></li>
+                        <li class="mr-3"><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <!-- Social Media -->
+                <div class="col-md-6 mb-3">
+                    <h6>Urmăriți-ne</h6>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/p/Centrul-Medical-REVIMED-100047070376925/?locale=ro_RO" target="_blank">
+                            <i class="fab fa-facebook fa-2x"></i>
+                        </a>
+                        <!-- Adăugați alte rețele sociale aici dacă este necesar -->
+                    </div>
+                </div>
+            </div>
+            <!-- Copyright -->
+            <div class="text-center mt-3">
+                <p>&copy; 2024 Centru Medical Revimed PLUS. Toate drepturile rezervate.</p>
+            </div>
+        </div>
+    </footer>
+
+<!-- ================================================
+     Modale pentru Servicii
+=============================================== -->
+
+<!-- Modal pentru Consultații Neurologice -->
+<div class="modal fade" id="neurologyModal" tabindex="-1" role="dialog" aria-labelledby="neurologyModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 id="neurologyModalLabel" class="modal-title">Consultații Neurologice</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Închide">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Conținut Detaliat pentru Consultații Neurologice -->
+                <p>Oferim consultații neurologice complete pentru diagnosticarea și gestionarea afecțiunilor sistemului nervos central și periferic. Echipa noastră de specialiști utilizează cele mai moderne tehnologii pentru a asigura un diagnostic precis și un plan de tratament eficient.</p>
+                <p>Serviciile noastre includ evaluări neurologice detaliate, managementul durerii cronice, tratamente personalizate și multe altele. Ne dedicăm să îmbunătățim calitatea vieții pacienților noștri prin îngrijire atentă și profesionalism.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Închide</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal pentru Consultații Chirurgicale -->
+<div class="modal fade" id="surgeryConsultModal" tabindex="-1" role="dialog" aria-labelledby="surgeryConsultModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 id="surgeryConsultModalLabel" class="modal-title">Consultații Chirurgicale</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Închide">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Conținut Detaliat pentru Consultații Chirurgicale -->
+                <p>Consultațiile chirurgicale sunt esențiale pentru evaluarea necesității intervențiilor chirurgicale. Dr. Igor Revenco, cu vasta sa experiență, oferă evaluări detaliate pentru a determina cel mai bun plan de tratament pentru fiecare pacient.</p>
+                <p>Ne concentrăm pe abordări personalizate și minim invazive, utilizând cele mai noi tehnologii și metode pentru a asigura recuperarea rapidă și eficientă a pacienților noștri.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Închide</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal pentru Fizioterapie și Reabilitare -->
+<div class="modal fade" id="physiotherapyModal" tabindex="-1" role="dialog" aria-labelledby="physiotherapyModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 id="physiotherapyModalLabel" class="modal-title">Fizioterapie și Reabilitare</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Închide">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Conținut Detaliat pentru Fizioterapie și Reabilitare -->
+                <p>Programele noastre de fizioterapie și reabilitare sunt concepute pentru a ajuta pacienții să-și recâștige mobilitatea, forța și funcționalitatea. Utilizăm o varietate de tehnici moderne și terapii personalizate pentru a răspunde nevoilor individuale ale fiecărui pacient.</p>
+                <p>Echipa noastră de fizioterapeuți este dedicată să ofere suport și ghidare continuă, asigurându-se că fiecare pacient progresează în ritmul său și atinge obiectivele stabilite.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Închide</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal pentru Diagnostic Funcțional -->
+<div class="modal fade" id="functionalDiagnosisModal" tabindex="-1" role="dialog" aria-labelledby="functionalDiagnosisModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 id="functionalDiagnosisModalLabel" class="modal-title">Diagnostic Funcțional</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Închide">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Conținut Detaliat pentru Diagnostic Funcțional -->
+                <p>Diagnostic Funcțional oferă evaluări comprehensive ale funcțiilor sistemului nervos, musculaturii și sistemului cardiovascular. Utilizăm echipamente avansate pentru a monitoriza și analiza activitatea fizică și neurologică a pacienților noștri.</p>
+                <p>Aceste evaluări ne permit să identificăm disfuncții și să dezvoltăm planuri de tratament personalizate pentru a optimiza sănătatea și performanța pacienților.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Închide</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal pentru Terapie Balneară -->
+<div class="modal fade" id="balneotherapyModal" tabindex="-1" role="dialog" aria-labelledby="balneotherapyModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 id="balneotherapyModalLabel" class="modal-title">Terapie Balneară</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Închide">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Conținut Detaliat pentru Terapie Balneară -->
+                <p>Terapia Balneară include tratamente cu nămol, hidroterapie și alte metode naturale pentru a îmbunătăți sănătatea și bunăstarea pacienților. Aceste terapii sunt eficiente în reducerea durerii, îmbunătățirea circulației și promovarea relaxării musculare.</p>
+                <p>Echipa noastră utilizează resursele naturale de înaltă calitate pentru a oferi tratamente personalizate care răspund nevoilor specifice ale fiecărui pacient.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Închide</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal pentru Electroterapie -->
+<div class="modal fade" id="electrotherapyModal" tabindex="-1" role="dialog" aria-labelledby="electrotherapyModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 id="electrotherapyModalLabel" class="modal-title">Electroterapie</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Închide">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Conținut Detaliat pentru Electroterapie -->
+                <p>Electroterapia utilizează curenți electrici pentru a stimula mușchii și nervii, ajutând la ameliorarea durerii, reducerea inflamației și promovarea recuperării musculare. Este o metodă non-invazivă și eficientă pentru tratarea diverselor afecțiuni.</p>
+                <p>Echipa noastră de specialiști utilizează tehnici avansate de electroterapie pentru a oferi tratamente personalizate care maximizează beneficiile pentru fiecare pacient.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Închide</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ================================================
+     Scripts
+=============================================== -->
+<!-- jQuery, Popper.js, Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Font Awesome JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js"></script>
+
+<!-- Custom JS -->
+<script>
+    $(document).ready(function() {
+        // ================================================
+        // Navbar Background Change on Scroll
+        // ================================================
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 50) {
+                $('.navbar').addClass('scrolled');
+            } else {
+                $('.navbar').removeClass('scrolled');
+            }
+        });
+
+        // ================================================
+        // Smooth Scrolling for Navbar Links
+        // ================================================
+        $('.navbar-nav a').on('click', function(event) {
+            if (this.hash !== "") {
+                event.preventDefault();
+                var hash = this.hash;
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top - 70
+                }, 800, function(){
+                    window.location.hash = hash;
+                });
+            }
+        });
+
+        // ================================================
+        // Convert Currency Function
+        // ================================================
+        function convertCurrency() {
+            const amount = parseFloat($("#amount").val());
+            const currency = $("#currencies").val();
+            let rate;
+            let result;
+
+            if (isNaN(amount)) {
+                $("#result").html(`<div class="alert alert-danger">Vă rugăm să introduceți o sumă validă.</div>`);
+                return;
+            }
+
+            switch(currency) {
+                case "mdlron":
+                    rate = 0.24;
+                    result = amount * rate;
+                    $("#result").text(`${amount} MDL = ${result.toFixed(2)} RON`);
+                    break;
+                case "mdlusd":
+                    rate = 0.05;
+                    result = amount * rate;
+                    $("#result").text(`${amount} MDL = ${result.toFixed(2)} USD`);
+                    break;
+                case "mdluah":
+                    rate = 1.92;
+                    result = amount * rate;
+                    $("#result").text(`${amount} MDL = ${result.toFixed(2)} UAH`);
+                    break;
+                case "mdlgbp":
+                    rate = 0.04;
+                    result = amount * rate;
+                    $("#result").text(`${amount} MDL = ${result.toFixed(2)} GBP`);
+                    break;
+                case "mdleur":
+                    rate = 0.05;
+                    result = amount * rate;
+                    $("#result").text(`${amount} MDL = ${result.toFixed(2)} EUR`);
+                    break;
+                default:
+                    $("#result").html(`<div class="alert alert-danger">Vă rugăm să selectați o monedă validă.</div>`);
+            }
+        }
+
+        // Bind the convertCurrency function to the form submission
+        $("#currencyConverterForm").on("submit", function(e) {
+            e.preventDefault();
+            convertCurrency();
+        });
+
+        // ================================================
+        // Bootstrap Handles Modal Functionality Automatically
+        // ================================================
+
+        // ================================================
+        // Debugging: Log modal openings and closings
+        // ================================================
+        $('.modal').on('show.bs.modal', function () {
+            console.log('Deschiderea modalului:', this.id);
+        });
+
+        $('.modal').on('shown.bs.modal', function () {
+            console.log('Modal deschis:', this.id);
+        });
+
+        $('.modal').on('hide.bs.modal', function () {
+            console.log('Închiderea modalului:', this.id);
+        });
+
+        $('.modal').on('hidden.bs.modal', function () {
+            console.log('Modal închis:', this.id);
+        });
+    });
+</script>
+
+</body>
+</html>
