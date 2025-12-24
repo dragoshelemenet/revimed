@@ -938,19 +938,30 @@ footer .social-icons a:hover {
     animation: slideInLeft 1s ease-out forwards;
 }
 
-/* Fade-in for Gallery Items */
+/* =====================================================
+   SAFE Fade-in for Gallery Items (NO invisible bug)
+===================================================== */
+
+/* Gallery images are ALWAYS visible by default */
 .gallery-item {
-    opacity: 0;
-    animation: fadeIn 1s ease forwards;
+    opacity: 1;                     /* critical fix */
+    transform: translateY(12px);
+    animation: galleryFadeIn 0.6s ease-out both;
+    will-change: opacity, transform;
 }
 
-.gallery-item:nth-child(odd) {
-    animation-delay: 0.2s;
+/* Single animation - no odd/even traps */
+@keyframes galleryFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.gallery-item:nth-child(even) {
-    animation-delay: 0.4s;
-}
 
 /* =====================================================
     4. Ensuring Animations Do Not Affect Modals
