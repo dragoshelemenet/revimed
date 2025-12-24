@@ -16,499 +16,1033 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- Custom CSS -->
-/* FULL CSS UPDATE - CLEAN + FIXED + WORKING
-   - gallery images ALWAYS visible
-   - fade-in works RELIABLY (no stuck opacity:0)
-   - removes conflicting modal transforms
-   - keeps your look, improves performance + mobile
-*/
-:root{
-  --primary:#007bff;
-  --secondary:#ffc107;
-  --text:#333333;
-  --muted:#555555;
-  --bg:#ffffff;
-  --bg-soft:#f9f9f9;
-  --shadow-sm:0 2px 10px rgba(0,0,0,.08);
-  --shadow-md:0 4px 15px rgba(0,0,0,.12);
-  --shadow-lg:0 8px 25px rgba(0,0,0,.18);
-  --radius:10px;
+    <style>
+        /* =====================================================
+           General Styles
+        ===================================================== */
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            scroll-behavior: smooth;
+            user-select: none;
+            background-color: #ffffff;
+            color: #333333;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* =====================================================
+           Header / Hero Section
+        ===================================================== */
+        header {
+            background: url('/medical-bg.jpg') no-repeat center center/cover;
+            height: 100vh;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            padding: 20px;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 0;
+        }
+
+        header .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        header .btn {
+            font-size: 1rem;
+            padding: 12px 30px;
+            border-radius: 5px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        header img {
+            max-width: 90%;
+            height: auto;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        /* =====================================================
+           Navbar
+        ===================================================== */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.9) !important;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            padding: 15px 0;
+            z-index: 1000;
+        }
+
+        .navbar.scrolled {
+            background-color: #fff !important;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .navbar .nav-link {
+            color: #333 !important;
+            font-weight: 500;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+
+        .navbar .nav-link:hover {
+            color: #007bff !important;
+        }
+
+        .navbar-brand img {
+            height: 50px;
+            transition: height 0.3s;
+        }
+
+        .navbar.scrolled .navbar-brand img {
+            height: 40px;
+        }
+
+        /* =====================================================
+           Sections
+        ===================================================== */
+        section {
+            padding: 80px 0;
+        }
+
+        #about, #services, #team, #testimonials, #youtube-videos, #contact {
+            background-color: #f9f9f9;
+        }
+
+        /* =====================================================
+           About Section
+        ===================================================== */
+        #about .about-img {
+            max-width: 300px;
+            margin: 0 auto 30px;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: block; /* Ensure centering */
+        }
+
+        #about .about-content {
+            text-align: center;
+        }
+
+        #about h2 {
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        #about p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        #about .btn {
+            font-size: 1rem;
+            padding: 10px 25px;
+            border-radius: 5px;
+        }
+
+        /* =====================================================
+           Services Section
+        ===================================================== */
+        #services h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .service-item {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .service-item i {
+            color: #007bff;
+            margin-bottom: 15px;
+            font-size: 3rem; /* Ensures consistent icon size */
+        }
+
+        .service-item h4 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #343a40;
+        }
+
+        .service-item p {
+            font-size: 0.95rem;
+            color: #555555;
+            margin-bottom: 20px;
+        }
+
+        .service-item .btn {
+            font-size: 0.9rem;
+            padding: 8px 20px;
+            border-radius: 5px;
+        }
+
+        /* =====================================================
+           Modals
+        ===================================================== */
+        .modal-content {
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .modal-header {
+            border-bottom: none;
+            padding: 20px 30px;
+            background-color: #007bff;
+            color: #fff;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .modal-header .close {
+            color: #fff;
+            opacity: 1;
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .modal-footer {
+            border-top: none;
+            padding: 20px 30px;
+        }
+
+        /* =====================================================
+           Buttons
+        ===================================================== */
+        .custom-btn {
+            font-weight: bold;
+            padding: 12px 25px;
+            border-radius: 5px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .custom-btn i {
+            margin-right: 5px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+            box-shadow: 0 3px 10px rgba(0, 123, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: #ffc107;
+            color: #343a40;
+            border: none;
+        }
+
+        .btn-secondary:hover {
+            background-color: #e0a800;
+            transform: scale(1.05);
+            box-shadow: 0 3px 10px rgba(255, 193, 7, 0.3);
+        }
+
+        /* =====================================================
+           Gallery Section
+        ===================================================== */
+        #gallery h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .gallery-item {
+            width: 100%;
+            max-width: 300px;
+            height: 200px;
+            object-fit: cover;
+            margin: 10px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        /* =====================================================
+           Testimonials Section
+        ===================================================== */
+        #testimonials h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .testimonial {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .testimonial:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .testimonial p {
+            font-size: 1rem;
+            color: #555;
+            flex-grow: 1;
+        }
+
+        .testimonial h5 {
+            font-size: 0.9rem;
+            color: #007bff;
+            margin-top: 15px;
+            font-weight: 600;
+        }
+
+        /* =====================================================
+           YouTube Videos Section
+        ===================================================== */
+        #youtube-videos h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            padding-top: 25px;
+            height: 0;
+            margin-bottom: 20px;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* =====================================================
+           Contact Section
+        ===================================================== */
+        #contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        #contact p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        #contact .working-hours {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        #contact .transport-info span {
+            font-size: 1rem;
+            margin: 5px 15px;
+            color: #555;
+        }
+
+        #contact .gallery img {
+            max-width: 150px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        #contact .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        #contact iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+
+        /* =====================================================
+           Footer
+        ===================================================== */
+        footer {
+            background-color: #343a40;
+            color: #fff;
+            padding: 40px 0;
+        }
+
+        footer a {
+            color: #ffc107;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+        footer h6 {
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        footer ul li {
+            margin-bottom: 10px;
+        }
+
+        footer .social-icons a {
+            margin-right: 15px;
+            color: #ffc107;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        footer .social-icons a:hover {
+            color: #fff;
+        }
+
+        /* =====================================================
+           Responsive Styles
+        ===================================================== */
+        @media (max-width: 1200px) {
+            header h1 {
+                font-size: 2.5rem;
+                        padding: 100px 60px; /* Add padding to separate from hero section */
+
+            }
+            header p {
+                font-size: 1rem;
+            }
+            .gallery-item {
+                max-width: 250px;
+            }
+            #about .about-img {
+                max-width: 250px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            header {
+                height: auto;
+                  padding: 100px 60px; /* Add padding to separate from hero section */
+
+            }
+            header h1 {
+                font-size: 2rem;
+            }
+            header p {
+                font-size: 0.9rem;
+            }
+            #about .about-content {
+                text-align: center;
+            }
+            #contact h2 {
+                font-size: 2rem;
+            }
+            .navbar .nav-link {
+                margin-right: 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            header p {
+                font-size: 0.8rem;
+            }
+            .custom-btn {
+                font-size: 0.9rem;
+            }
+            #contact iframe {
+                height: 250px;
+            }
+            .service-item h4 {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+            header p {
+                font-size: 0.7rem;
+            }
+            .custom-btn {
+                padding: 10px 20px;
+                font-size: 0.8rem;
+            }
+            .gallery-item {
+                max-width: 200px;
+            }
+            #contact h2 {
+                font-size: 1.5rem;
+            }
+            footer h6 {
+                font-size: 1.2rem;
+            }
+            .social-icons a {
+                font-size: 1.2rem;
+            }
+
+            /* Adjust header content padding to prevent overlap */
+            header .header-content {
+                padding-top: 100px; /* Push content down on small screens */
+            }
+
+            /* Adjust modals for small screens */
+            .modal-dialog {
+                max-width: 95%;
+                margin: 1.75rem auto;
+            }
+        }
+
+        /* =====================================================
+           Additional Styles for Enhanced User Experience
+        ===================================================== */
+        /* Smooth Scroll Offset */
+        html {
+            scroll-padding-top: 70px;
+        }
+
+        /* Enhanced Button Styles */
+        .btn-outline-primary {
+            border-color: #007bff;
+            color: #007bff;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn-outline-primary:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        /* Enhanced Form Styles */
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0,123,255,0.5);
+        }
+
+        /* Additional Modals */
+        .modal-lg {
+            max-width: 80%;
+        }
+
+        .modal-xl {
+            max-width: 90%;
+        }
+
+
+
+        /* =====================================================
+           Accessibility Enhancements
+        ===================================================== */
+        /* Focus Styles for Accessibility */
+        a:focus, button:focus, input:focus, select:focus, textarea:focus {
+            outline: 2px solid #007bff;
+            outline-offset: 2px;
+        }
+
+        /* High Contrast for Better Readability */
+        .high-contrast {
+            background-color: #000;
+            color: #fff;
+        }
+
+        /* =====================================================
+           Animations and Transitions
+        ===================================================== */
+        .fade-in {
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* =====================================================
+           Additional Layout Enhancements
+        ===================================================== */
+        .container-lg {
+            max-width: 1140px;
+        }
+
+        .container-md {
+            max-width: 960px;
+        }
+
+        .container-sm {
+            max-width: 720px;
+        }
+
+        /* =====================================================
+           Custom Scrollbar
+        ===================================================== */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #888; 
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555; 
+        }
+
+        /* =====================================================
+           Enhanced Footer Layout
+        ===================================================== */
+        footer .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        footer .sitew {
+            width: 100%;
+        }
+
+        /* =====================================================
+           Additional Utility Classes
+        ===================================================== */
+        .mt-5 {
+            margin-top: 3rem !important;
+        }
+
+        .mb-5 {
+            margin-bottom: 3rem !important;
+        }
+
+        .mt-4 {
+            margin-top: 1.5rem !important;
+        }
+
+        .mb-4 {
+            margin-bottom: 1.5rem !important;
+        }
+
+        .ml-3 {
+            margin-left: 1rem !important;
+        }
+
+        .mx-2 {
+            margin-left: 0.5rem !important;
+            margin-right: 0.5rem !important;
+        }
+
+        /* =====================================================
+           Enhanced Modal Styles
+        ===================================================== */
+        .modal-title {
+            font-size: 1.5rem;
+        }
+
+        .modal-body h6 {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .table-bordered th, .table-bordered td {
+            vertical-align: middle;
+        }
+
+        /* =====================================================
+           Enhanced Button Spacing
+        ===================================================== */
+        .btn-group {
+            margin-top: 20px;
+        }
+
+        /* =====================================================
+           Additional Responsive Enhancements
+        ===================================================== */
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.2rem;
+            }
+
+            header p {
+                font-size: 0.6rem;
+            }
+
+            .service-item h4 {
+                font-size: 1rem;
+            }
+
+            .testimonial p {
+                font-size: 0.8rem;
+            }
+
+            footer h6 {
+                font-size: 1rem;
+            }
+
+            .social-icons a {
+                font-size: 1.2rem;
+            }
+        }
+        
+        /* =====================================================
+    1. Modal Fixes and Enhancements
+===================================================== */
+
+/* Reset any conflicting transformations and transitions */
+.modal.fade .modal-dialog {
+    transform: none !important;
+    transition: none !important;
 }
 
-/* =========================
-   Base
-========================= */
-html{scroll-behavior:smooth;scroll-padding-top:70px;}
-body{
-  margin:0;
-  font-family:'Roboto',sans-serif;
-  user-select:none;
-  background-color:var(--bg);
-  color:var(--text);
-}
-a{text-decoration:none;color:inherit;}
-img{max-width:100%;height:auto;display:block;}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar{width:12px;}
-::-webkit-scrollbar-track{background:#f1f1f1;}
-::-webkit-scrollbar-thumb{background:#888;border-radius:6px;}
-::-webkit-scrollbar-thumb:hover{background:#555;}
-
-/* =========================
-   Header / Hero
-========================= */
-header{
-  background:url('/medical-bg.jpg') no-repeat center center/cover;
-  min-height:100vh;
-  color:#fff;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  position:relative;
-  padding:20px;
-  overflow:hidden;
-}
-header::after{
-  content:'';
-  position:absolute;inset:0;
-  background:rgba(0,0,0,.5);
-  z-index:0;
-}
-header .header-content{position:relative;z-index:1;}
-header h1{
-  font-size:3rem;
-  margin:0 0 20px;
-  font-weight:700;
-  text-shadow:2px 2px 4px rgba(0,0,0,.5);
-}
-header p{
-  font-size:1.2rem;
-  margin:0 0 30px;
-  text-shadow:1px 1px 3px rgba(0,0,0,.5);
-}
-header .btn{
-  font-size:1rem;
-  padding:12px 30px;
-  border-radius:5px;
-  transition:transform .25s ease, box-shadow .25s ease;
-}
-header img{
-  max-width:90%;
-  margin:0 auto 15px;
-  border-radius:var(--radius);
-  box-shadow:var(--shadow-md);
+/* Restore default modal animations without affecting functionality */
+.modal.fade .modal-dialog {
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
 }
 
-/* =========================
-   Navbar
-========================= */
-.navbar{
-  background-color:rgba(255,255,255,.92) !important;
-  transition:background-color .25s ease, box-shadow .25s ease;
-  padding:15px 0;
-  z-index:1000;
-  backdrop-filter:saturate(180%) blur(8px);
-}
-.navbar.scrolled{
-  background-color:#fff !important;
-  box-shadow:0 2px 10px rgba(0,0,0,.1);
-}
-.navbar .nav-link{
-  color:#333 !important;
-  font-weight:500;
-  margin-right:15px;
-  transition:color .25s ease;
-}
-.navbar .nav-link:hover{color:var(--primary) !important;}
-.navbar-brand img{height:50px;transition:height .25s ease;}
-.navbar.scrolled .navbar-brand img{height:40px;}
-
-/* =========================
-   Sections
-========================= */
-section{padding:80px 0;}
-#about,#services,#team,#testimonials,#youtube-videos,#contact{background-color:var(--bg-soft);}
-
-/* =========================
-   About
-========================= */
-#about .about-img{
-  max-width:300px;
-  margin:0 auto 30px;
-  border-radius:50%;
-  box-shadow:var(--shadow-sm);
-}
-#about .about-content{text-align:center;}
-#about h2{
-  margin:0 0 30px;
-  font-size:2.5rem;
-  font-weight:700;
-}
-#about p{
-  font-size:1rem;
-  line-height:1.6;
-  margin:0 0 20px;
-}
-#about .btn{
-  font-size:1rem;
-  padding:10px 25px;
-  border-radius:5px;
+.modal.show .modal-dialog {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-/* =========================
-   Services
-========================= */
-#services h2{
-  font-size:2.5rem;
-  margin:0 0 40px;
-  text-align:center;
-  font-weight:700;
-}
-.service-item{
-  text-align:center;
-  padding:20px;
-  border-radius:var(--radius);
-  background:#fff;
-  box-shadow:var(--shadow-sm);
-  transition:transform .25s ease, box-shadow .25s ease;
-  height:100%;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  will-change:transform;
-}
-.service-item:hover{
-  transform:translateY(-8px);
-  box-shadow:var(--shadow-lg);
-}
-.service-item i{
-  color:var(--primary);
-  margin-bottom:15px;
-  font-size:3rem;
-}
-.service-item h4{
-  margin:0 0 15px;
-  font-size:1.5rem;
-  font-weight:600;
-  color:#343a40;
-}
-.service-item p{
-  font-size:.95rem;
-  color:var(--muted);
-  margin:0 0 20px;
-}
-.service-item .btn{
-  font-size:.9rem;
-  padding:8px 20px;
-  border-radius:5px;
+/* Ensure modal content is scrollable if it exceeds viewport */
+.modal-content {
+    max-height: 90vh;
+    overflow-y: auto;
+    scroll-behavior: smooth;
 }
 
-/* =========================
-   Modals (BOOTSTRAP SAFE)
-   IMPORTANT: no "transform:none!important" hacks
-========================= */
-.modal-content{
-  border-radius:var(--radius);
-  box-shadow:var(--shadow-md);
-  max-height:90vh;
-  overflow:auto;
-}
-.modal-header{
-  border-bottom:none;
-  padding:20px 30px;
-  background-color:var(--primary);
-  color:#fff;
-  border-top-left-radius:var(--radius);
-  border-top-right-radius:var(--radius);
-}
-.modal-header .close{color:#fff;opacity:1;}
-.modal-header .close:hover{color:var(--secondary);cursor:pointer;}
-.modal-body{padding:20px 30px;}
-.modal-footer{border-top:none;padding:20px 30px;}
-.modal-backdrop{background-color:rgba(0,0,0,.5);}
-
-/* =========================
-   Buttons
-========================= */
-.custom-btn{
-  font-weight:bold;
-  padding:12px 25px;
-  border-radius:5px;
-  transition:transform .25s ease, box-shadow .25s ease;
-  font-size:1rem;
-}
-.custom-btn i{margin-right:5px;}
-.btn-primary{
-  background-color:var(--primary);
-  color:#fff;
-  border:none;
-}
-.btn-primary:hover{
-  background-color:#0056b3;
-  transform:scale(1.03);
-  box-shadow:0 3px 12px rgba(0,123,255,.28);
-}
-.btn-secondary{
-  background-color:var(--secondary);
-  color:#343a40;
-  border:none;
-}
-.btn-secondary:hover{
-  background-color:#e0a800;
-  transform:scale(1.03);
-  box-shadow:0 3px 12px rgba(255,193,7,.28);
-}
-.btn-outline-primary{
-  border-color:var(--primary);
-  color:var(--primary);
-  transition:background-color .25s ease, color .25s ease;
-}
-.btn-outline-primary:hover{background-color:var(--primary);color:#fff;}
-
-/* =========================
-   Gallery (FIXED)
-   - no opacity:0 by default
-   - animation only if "data-anim" used
-========================= */
-#gallery h2{
-  font-size:2.5rem;
-  margin:0 0 40px;
-  text-align:center;
-  font-weight:700;
+/* Enhance modal body for better readability */
+.modal-body {
+    padding: 20px 30px;
+    overflow-y: auto;
 }
 
-/* Layout helper if you wrap images in a flex container */
-.gallery-wrap{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:20px;
+/* Optional: Add a subtle shadow to the modal backdrop */
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
-.gallery-item{
-  width:100%;
-  max-width:300px;
-  height:200px;
-  object-fit:cover;
-  border-radius:var(--radius);
-  cursor:pointer;
-  box-shadow:var(--shadow-sm);
-  transition:transform .25s ease, box-shadow .25s ease;
-  opacity:1; /* CRITICAL: never invisible */
-  background:#eaeaea; /* if image loads slow, you still see a block */
-}
-.gallery-item:hover{
-  transform:scale(1.04);
-  box-shadow:var(--shadow-md);
+/* Enhance close button with hover effect */
+.modal-header .close:hover {
+    color: #ffc107;
+    cursor: pointer;
 }
 
-/* OPTIONAL fade-in that cannot get stuck */
-.gallery-item[data-anim="fade"]{
-  animation:galleryFadeIn .6s ease-out both;
-}
-@keyframes galleryFadeIn{
-  from{opacity:0;transform:translateY(6px);}
-  to{opacity:1;transform:translateY(0);}
-}
-
-/* =========================
-   Testimonials
-========================= */
-#testimonials h2{
-  font-size:2.5rem;
-  margin:0 0 40px;
-  text-align:center;
-  font-weight:700;
-}
-.testimonial{
-  background:#fff;
-  padding:25px;
-  border-radius:var(--radius);
-  box-shadow:var(--shadow-sm);
-  transition:transform .25s ease, box-shadow .25s ease;
-  height:100%;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-}
-.testimonial:hover{
-  transform:translateY(-4px);
-  box-shadow:var(--shadow-md);
-}
-.testimonial p{font-size:1rem;color:var(--muted);flex-grow:1;}
-.testimonial h5{font-size:.9rem;color:var(--primary);margin-top:15px;font-weight:600;}
-
-/* =========================
-   YouTube Videos
-========================= */
-#youtube-videos h2{
-  font-size:2.5rem;
-  margin:0 0 40px;
-  text-align:center;
-  font-weight:700;
-}
-.video-container{
-  position:relative;
-  padding-bottom:56.25%;
-  padding-top:25px;
-  height:0;
-  margin-bottom:20px;
-  border-radius:var(--radius);
-  overflow:hidden;
-  box-shadow:var(--shadow-sm);
-  background:#000;
-}
-.video-container iframe{
-  position:absolute;top:0;left:0;
-  width:100%;height:100%;
+/* Responsive adjustments for modals on smaller screens */
+@media (max-width: 576px) {
+    .modal-content {
+        margin: 10px;
+        max-width: 95%;
+    }
 }
 
-/* =========================
-   Contact
-========================= */
-#contact h2{
-  font-size:2.5rem;
-  margin:0 0 40px;
-  text-align:center;
-  font-weight:700;
-}
-#contact p{font-size:1rem;color:var(--muted);margin:0 0 15px;}
-#contact .working-hours{
-  background:#fff;
-  padding:20px;
-  border-radius:var(--radius);
-  box-shadow:var(--shadow-sm);
-}
-#contact .transport-info span{
-  font-size:1rem;
-  margin:5px 15px;
-  color:var(--muted);
-}
-#contact .gallery img{
-  max-width:150px;
-  border-radius:var(--radius);
-  box-shadow:var(--shadow-sm);
-  transition:transform .25s ease, box-shadow .25s ease;
-}
-#contact .gallery img:hover{
-  transform:scale(1.04);
-  box-shadow:var(--shadow-md);
-}
-#contact iframe{
-  width:100%;
-  height:300px;
-  border:none;
-  border-radius:var(--radius);
-  box-shadow:var(--shadow-sm);
-  margin-top:20px;
+/* =====================================================
+    2. Header and Hero Section Adjustments for iPad Pro and Air
+===================================================== */
+
+/* Target iPad Pro (both portrait and landscape) and iPad Air */
+@media (min-width: 1025px) and (max-width: 1366px), /* iPad Pro 12.9" */
+       (min-width: 768px) and (max-width: 1024px) /* iPad Air and others */ {
+    
+    /* Adjust header height to prevent overlapping */
+    header {
+        height: auto; /* Allow height to adjust based on content */
+        padding: 100px 60px; /* Add padding to separate from hero section */
+    }
+
+    /* Ensure header content is visible and not hidden */
+    header .header-content {
+        padding-bottom: 40px; /* Space below header content */
+    }
+
+    /* Position hero section below the header */
+    #hero {
+        margin-top: 100px;
+        animation: fadeInUp 1s ease-out forwards;
+    }
+
+    /* Optional: Adjust header background for better visibility */
+    header {
+        background: url('/medical-bg.jpg') no-repeat center center/cover;
+        position: relative;
+    }
+
+    /* Adjust text sizes for better readability */
+    header h1 {
+        font-size: 2.8rem;
+                padding: 100px 60px; /* Add padding to separate from hero section */
+
+    }
+
+    header p {
+        font-size: 1.2rem;
+    }
+
+    /* Adjust button sizes and spacing */
+    .btn {
+        padding: 14px 35px;
+        font-size: 1.1rem;
+    }
 }
 
-/* Forms */
-.form-control:focus{
-  border-color:var(--primary);
-  box-shadow:0 0 5px rgba(0,123,255,.35);
+/* =====================================================
+    3. Additional Animations
+===================================================== */
+
+/* Bounce-in Animation for Service Items */
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
-/* =========================
-   Footer
-========================= */
-footer{
-  background-color:#343a40;
-  color:#fff;
-  padding:40px 0;
-}
-footer a{
-  color:var(--secondary);
-  transition:color .25s ease;
-}
-footer a:hover{color:#fff;}
-footer h6{font-weight:bold;margin:0 0 15px;}
-footer ul{list-style:none;padding:0;margin:0;}
-footer ul li{margin-bottom:10px;}
-footer .social-icons a{
-  margin-right:15px;
-  color:var(--secondary);
-  font-size:1.5rem;
-  transition:transform .25s ease, color .25s ease;
-  display:inline-block;
-}
-footer .social-icons a:hover{
-  color:#fff;
-  transform:rotate(12deg) scale(1.05);
+.service-item {
+    animation: bounceIn 0.8s ease forwards;
 }
 
-/* =========================
-   Utilities
-========================= */
-.container-lg{max-width:1140px;}
-.container-md{max-width:960px;}
-.container-sm{max-width:720px;}
-.mt-5{margin-top:3rem !important;}
-.mb-5{margin-bottom:3rem !important;}
-.mt-4{margin-top:1.5rem !important;}
-.mb-4{margin-bottom:1.5rem !important;}
-.ml-3{margin-left:1rem !important;}
-.mx-2{margin-left:.5rem !important;margin-right:.5rem !important;}
-.modal-title{font-size:1.5rem;}
-.modal-body h6{margin-top:20px;font-size:1.2rem;font-weight:600;}
-.table-bordered th,.table-bordered td{vertical-align:middle;}
-.btn-group{margin-top:20px;}
-
-/* =========================
-   Responsive
-========================= */
-@media (max-width:1200px){
-  header h1{font-size:2.5rem;}
-  header p{font-size:1rem;}
-  .gallery-item{max-width:250px;}
-  #about .about-img{max-width:250px;}
-}
-@media (max-width:992px){
-  header{min-height:auto;padding:100px 30px;}
-  header h1{font-size:2rem;}
-  header p{font-size:.95rem;}
-  #contact h2{font-size:2rem;}
-  .navbar .nav-link{margin-right:10px;}
-}
-@media (max-width:768px){
-  header h1{font-size:1.8rem;}
-  header p{font-size:.85rem;}
-  .custom-btn{font-size:.9rem;}
-  #contact iframe{height:250px;}
-  .service-item h4{font-size:1.3rem;}
-}
-@media (max-width:576px){
-  header h1{font-size:1.5rem;}
-  header p{font-size:.75rem;}
-  .custom-btn{padding:10px 20px;font-size:.85rem;}
-  .gallery-item{max-width:200px;height:180px;}
-  #contact h2{font-size:1.5rem;}
-  footer h6{font-size:1.1rem;}
-  .social-icons a{font-size:1.2rem;}
-  header .header-content{padding-top:100px;}
-  .modal-dialog{max-width:95%;margin:1.25rem auto;}
-}
-@media (max-width:480px){
-  header h1{font-size:1.2rem;}
-  header p{font-size:.65rem;}
-  .service-item h4{font-size:1rem;}
-  .testimonial p{font-size:.9rem;}
+/* Rotate Animation for Footer Icons */
+@keyframes rotateIcon {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
-/* iPad / large tablets adjustments (kept but simplified) */
-@media (min-width:768px) and (max-width:1366px){
-  header{min-height:auto;padding:100px 60px;}
-  header .header-content{padding-bottom:40px;}
+footer .social-icons a {
+    display: inline-block;
+    transition: transform 0.5s;
 }
 
-/* Reduced motion */
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation:none !important;transition:none !important;}
+footer .social-icons a:hover {
+    transform: rotate(360deg);
 }
 
+/* Slide-in from Left for Testimonials */
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.testimonial {
+    animation: slideInLeft 1s ease-out forwards;
+}
+
+/* Fade-in for Gallery Items */
+.gallery-item {
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+}
+
+.gallery-item:nth-child(odd) {
+    animation-delay: 0.2s;
+}
+
+.gallery-item:nth-child(even) {
+    animation-delay: 0.4s;
+}
+
+/* =====================================================
+    4. Ensuring Animations Do Not Affect Modals
+===================================================== */
+
+/* Prevent animations from affecting modals */
+.modal-content, .modal-header, .modal-body, .modal-footer {
+    animation: none !important;
+}
+
+/* =====================================================
+    5. Smooth Scroll Enhancements
+===================================================== */
+
+/* Ensure smooth scrolling for in-page navigation */
+html {
+    scroll-behavior: smooth;
+}
+
+/* =====================================================
+    6. Optimizing Layout for iPad Pro and Air
+===================================================== */
+
+/* Ensure hero section is properly positioned */
+#hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+}
+
+/* Adjust spacing and alignment */
+#hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+#hero p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+/* =====================================================
+    7. Additional Responsiveness Enhancements
+===================================================== */
+
+/* High-resolution iPad Pro screens */
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (orientation: landscape),
+       only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (orientation: portrait) {
+    
+    /* Adjust font sizes for larger iPads */
+    header h1 {
+        font-size: 3rem;
+    }
+
+    header p {
+        font-size: 1.3rem;
+    }
+
+    /* Optimize button sizes */
+    .btn {
+        padding: 16px 40px;
+        font-size: 1.2rem;
+    }
+
+    /* Adjust service item animations */
+    .service-item {
+        animation: bounceIn 1s ease forwards;
+    }
+
+    /* Ensure modals remain functional */
+    .modal-content {
+        max-height: 85vh;
+    }
+}
+
+/* =====================================================
+    8. Additional Accessibility Enhancements
+===================================================== */
+
+/* Ensure animations do not interfere with user preferences */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+        
+    </style>
 </head>
 <body>
     
